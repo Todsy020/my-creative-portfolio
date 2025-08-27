@@ -185,7 +185,7 @@ const FirstSection = () => {
         className="absolute bottom-0 left-1/2 -translate-x-1/2 z-20 opacity-100 w-[100vw] md:w-[60vw] lg:w-[55vw] xl:w-[50vw] max-w-[900px]"
       >
         <video
-          src="avatar_anim_HELLO.webm"
+          src="/avatar_anim_HELLO.webm"
           preload="auto"
           autoPlay
           loop
