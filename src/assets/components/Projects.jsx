@@ -12,7 +12,7 @@ const Projects = () => {
       title: 'Portfolio',
       description:
         'My portfolio serves to introduce myself and showcase my work through an original visual navigation that blends 3D animation, motion design, and customized 2D elements. The goal is to offer a glimpse of my creative vision by combining various styles and software.',
-      image: 'portfolio.png',
+      image: '/portfolio.png',
       technologies: [
         'React',
         'Blender',
@@ -27,7 +27,7 @@ const Projects = () => {
       title: 'Hypersplash',
       description:
         'Hypersplash is an immersive and creative website showcasing a collection of fictional cans, each featuring a unique, handmade design. Blending graphic design, animation, and interactivity, it delivers a striking and memorable user experience.',
-      image: 'Hyper-splash.PNG',
+      image: '/Hyper-splash.PNG',
       technologies: [
         'React',
         'Node.js',
@@ -50,7 +50,7 @@ const Projects = () => {
       title: 'Portfolio',
       description:
         'My portfolio serves to introduce myself and showcase my work through an original visual navigation that blends 3D animation, motion design, and customized 2D elements. The goal is to offer a glimpse of my creative vision by combining various styles and software.',
-      image: 'portfolio.png',
+      image: '/portfolio.png',
       technologies: [
         'React',
         'Blender',
