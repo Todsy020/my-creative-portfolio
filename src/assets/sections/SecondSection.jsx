@@ -5,7 +5,7 @@ import GeometricBackground from '../background/GeometricBackground';
 import SpotlightCard from '../components/SpotlightCard'; // <-- ton composant spotlight
 //medias :
 import hpWhipPanVideo from '../../../medias/hp_whip_pan.webm';
-import hyperSplashImg from '../../../medias/Hyper-splash.PNG';
+import hyperSplashImg from '../../../medias/Hyper-splash.png';
 import canAnimVideo from '../../../medias/can_anim.webm';
 import animLinkVideo from '../../../medias/anim_link.webm';
 
