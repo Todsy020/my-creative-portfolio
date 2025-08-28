@@ -10,6 +10,9 @@ import { ArrowBigLeft, ArrowBigRight } from 'lucide-react';
 import PortfolioCard from '../cards/PortfolioCard';
 import ProjectsCard from '../cards/ProjectsCard';
 import AnimatedBackground from '../background/AnimatedBackground';
+//medias :
+import idCardAnimVideo from '../../../medias/id_card_anim.webm';
+import textScreenVideo from '../../../medias/Text_screen.webm';
 
 const ThirdSection = () => {
   const thirdSectionRef = useRef(null);
@@ -79,9 +82,6 @@ const ThirdSection = () => {
       style={{
         rotateZ: rotateThirdSection,
         scale: scaleSection,
-        backgroundImage: "url('/third_bg.svg')",
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
       }}
       className="w-full h-[100vh] lg:h-[110vh] flex items-center justify-center bg-slate-900 z-30 sticky top-0 mt-20 md:mt-32 lg:mt-36 overflow-hidden"
       aria-label="About Me and My Work section with interactive cards"
@@ -101,7 +101,7 @@ const ThirdSection = () => {
           >
             <video
               className="absolute bottom-[2.5rem] right-[7.5rem] w-full h-full object-cover"
-              src="id_card_anim.webm"
+              src={idCardAnimVideo}
               autoPlay
               loop
               muted
@@ -129,7 +129,7 @@ const ThirdSection = () => {
           >
             <video
               className="absolute top-0 left-[1.5rem] w-full h-full object-cover"
-              src="Text_screen.webm"
+              src={textScreenVideo}
               autoPlay
               loop
               muted

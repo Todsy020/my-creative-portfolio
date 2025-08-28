@@ -55,7 +55,7 @@ const HeroSection = () => {
           transition={{ duration: 0.6, delay: 0.7 }}
           className="bg-slate-800 p-3 rounded-lg shadow-2xl border-2 border-slate-700 flex flex-col w-full xl:w-1/3 h-full"
         >
-          <h3 className="flex justify-center items-center relative before:absolute before:left-0 before:w-1/3 before:h-px before:bg-slate-400 after:absolute after:right-0 after:w-1/3 after:h-px after:bg-slate-400 mb-4 text-c-2xl md:text-c-4xl lg:text-c-2xl font-tanker">
+          <h3 className="flex justify-center items-center relative before:absolute before:left-0 before:w-1/3 before:h-px before:bg-slate-400 after:absolute after:right-0 after:w-1/3 after:h-px after:bg-slate-400 mb-4 text-c-2xl md:text-c-4xl lg:text-c-2xl 2xl:text-c-3xl font-tanker">
             About me
           </h3>
 
@@ -126,14 +126,14 @@ const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.9 }}
             className="bg-slate-800 p-4 rounded-lg shadow-2xl border-2 border-slate-700 flex flex-col text-center h-full"
           >
-            <h3 className="flex justify-center items-center relative before:absolute before:left-0 before:w-1/4 before:h-px before:bg-slate-400 after:absolute after:right-0 after:w-1/4 after:h-px after:bg-slate-400 mb-2 text-c-2xl md:text-c-4xl lg:text-c-2xl font-tanker">
+            <h3 className="flex justify-center items-center relative before:absolute before:left-0 before:w-1/4 before:h-px before:bg-slate-400 after:absolute after:right-0 after:w-1/4 after:h-px after:bg-slate-400 mb-2 text-c-2xl md:text-c-4xl lg:text-c-2xl 2xl:text-c-3xl font-tanker">
               Tools & Skills
             </h3>
             <motion.ul
               variants={containerVariants}
               initial="hidden"
               animate="visible"
-              className="list-none text-left space-y-2 md:space-y-3 font-inter text-c-sm md:text-c-base lg:text-c-sm"
+              className="list-none text-left space-y-2 md:space-y-3 font-inter text-c-sm md:text-c-base lg:text-c-sm 2xl:text-c-lg"
             >
               <motion.li
                 variants={childVariants}
@@ -182,10 +182,10 @@ const HeroSection = () => {
             transition={{ duration: 0.6, delay: 1.1 }}
             className="bg-slate-800 p-5 rounded-lg shadow-2xl border-2 border-slate-700 flex flex-col justify-start h-full"
           >
-            <h3 className="flex justify-center items-center relative before:absolute before:left-0 before:w-1/3 before:h-px before:bg-slate-400 after:absolute after:right-0 after:w-1/3 after:h-px after:bg-slate-400 mb-1 text-c-2xl md:text-c-4xl lg:text-c-2xl font-tanker">
+            <h3 className="flex justify-center items-center relative before:absolute before:left-0 before:w-1/3 before:h-px before:bg-slate-400 after:absolute after:right-0 after:w-1/3 after:h-px after:bg-slate-400 mb-1 text-c-2xl md:text-c-4xl lg:text-c-2xl 2xl:text-c-3xl font-tanker">
               OVB
             </h3>
-            <p className="text-c-sm md:text-c-base lg:text-c-sm leading-relaxed font-inter text-center">
+            <p className="text-c-sm md:text-c-base lg:text-c-sm 2xl:text-c-lg leading-relaxed font-inter text-center">
               <span className="text-teal-400 font-semibold">OVB</span>{' '}
               is my web creation agency, but also a{' '}
               <span className="text-teal-400 font-semibold">

@@ -5,7 +5,7 @@ import {
   useSpring,
 } from 'framer-motion';
 import { useEffect, useState, useRef } from 'react';
-
+import avatarVideo from '../../../medias/avatar_anim_HELLO.webm';
 const helloContainerAnim = {
   hidden: { opacity: 1 },
   visible: {
@@ -42,7 +42,7 @@ const avatarImgContainerAnim = {
 
 // Setup pour le texte de présentation
 const text =
-  "I'm Théodore, a french creative developer. I work with brands to craft unique and memorable experiences.";
+  "I'm Théodore, a creative developer based in Paris. I work with brands to craft unique and memorable experiences.";
 const words = text.split(' ');
 
 const FirstSection = () => {
@@ -185,7 +185,7 @@ const FirstSection = () => {
         className="absolute bottom-0 left-1/2 -translate-x-1/2 z-20 opacity-100 w-[100vw] md:w-[60vw] lg:w-[55vw] xl:w-[50vw] max-w-[900px]"
       >
         <video
-          src="/avatar_anim_HELLO.webm"
+          src={avatarVideo}
           preload="auto"
           autoPlay
           loop

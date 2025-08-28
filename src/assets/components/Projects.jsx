@@ -5,6 +5,11 @@ import {
   ChevronLeft,
   ChevronRight,
 } from 'lucide-react';
+//medias :
+import portfolioImg from '../../../medias/portfolio.png';
+import hypersplashImg from '../../../medias/Hyper-splash.png';
+import pfmImg from '../../../medias/PFM.png';
+import comingSoon from '../../../medias/coming-soon.png';
 
 const Projects = () => {
   const projects = [
@@ -12,7 +17,7 @@ const Projects = () => {
       title: 'Portfolio',
       description:
         'My portfolio serves to introduce myself and showcase my work through an original visual navigation that blends 3D animation, motion design, and customized 2D elements. The goal is to offer a glimpse of my creative vision by combining various styles and software.',
-      image: '/portfolio.png',
+      image: portfolioImg,
       technologies: [
         'React',
         'Blender',
@@ -27,7 +32,7 @@ const Projects = () => {
       title: 'Hypersplash',
       description:
         'Hypersplash is an immersive and creative website showcasing a collection of fictional cans, each featuring a unique, handmade design. Blending graphic design, animation, and interactivity, it delivers a striking and memorable user experience.',
-      image: '/Hyper-splash.PNG',
+      image: hypersplashImg,
       technologies: [
         'React',
         'Node.js',
@@ -42,47 +47,25 @@ const Projects = () => {
       title: 'PureF#Madness',
       description:
         'Pure F# Madness is a raw and impactful showcase website that introduces the work of an independent, underground French artist. It showcases his work with bold art direction, with every visual element handcrafted by the artist himself. The site immerses visitors in a unique universe where creativity meets raw intensity.',
-      image: 'PFM.png',
+      image: pfmImg,
       technologies: ['React', 'React Router', 'Framer motion'],
       external: 'https://purefuckingmadness.netlify.app/',
     },
     {
-      title: 'Portfolio',
+      title: 'Dev qui Dev',
       description:
-        'My portfolio serves to introduce myself and showcase my work through an original visual navigation that blends 3D animation, motion design, and customized 2D elements. The goal is to offer a glimpse of my creative vision by combining various styles and software.',
-      image: '/portfolio.png',
+        "Dev qui Dev is a bold showcase website designed to demonstrate the full range of a developer's skills. From API integrations to dynamic UI/UX, the project highlights versatility and technical mastery across multiple stacks. It's a creative playground that proves the ability to handle both the artistic and technical sides of modern web development.",
+      image: comingSoon,
       technologies: [
         'React',
-        'Blender',
-        'After Effects',
-        'Illustrator',
+        'Next.js',
+        'Node.js',
+        'Express.js',
         'Framer Motion',
-        'Premiere pro',
+        'Tailwind CSS',
+        'REST API',
       ],
       external: '#',
-    },
-    {
-      title: 'Hypersplash',
-      description:
-        'Hypersplash is an immersive and creative website showcasing a collection of fictional cans, each featuring a unique, handmade design. Blending graphic design, animation, and interactivity, it delivers a striking and memorable user experience.',
-      image: 'Hyper-splash.PNG',
-      technologies: [
-        'React',
-        'Node.js',
-        'Express.js',
-        'Framer motion',
-        'Adobe Illustrator',
-        'Adobe Photoshop',
-      ],
-      external: 'https://hypersplash.onrender.com/',
-    },
-    {
-      title: 'PureF#Madness',
-      description:
-        'Pure F# Madness is a raw and impactful showcase website that introduces the work of an independent, underground French artist. It showcases his work with bold art direction, with every visual element handcrafted by the artist himself. The site immerses visitors in a unique universe where creativity meets raw intensity.',
-      image: 'PFM.png',
-      technologies: ['React', 'React Router', 'Framer motion'],
-      external: 'https://purefuckingmadness.netlify.app/',
     },
   ];
 
@@ -302,7 +285,7 @@ const Projects = () => {
               </motion.a>
 
               <div className="flex-1 flex flex-col">
-                <h3 className="text-zinc-100 font-semibold text-3xl mb-3 drop-shadow-md text-center tracking-widest border rounded-b-full hover:text-teal-400 hover:shadow-2xl transition-colors duration-200">
+                <h3 className="text-zinc-100 font-semibold text-3xl mb-3 drop-shadow-md text-center tracking-widest border rounded-b-full hover:text-teal-400 hover:shadow-2xl transition-colors duration-200 font-tanker">
                   {project.title}
                 </h3>
 
@@ -344,7 +327,7 @@ const Projects = () => {
           onClick={goToPrev}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
-          className="absolute lg:left-5 xl:left-50 2xl:left-80 top-1/2 -translate-y-1/2 z-20 p-3 lg:p-4 rounded-full bg-slate-800/80 backdrop-blur-sm border border-slate-600 hover:border-teal-400 transition-all duration-300 shadow-lg"
+          className="absolute lg:left-5 xl:left-50 2xl:left-80 top-1/2 -translate-y-1/2 z-20 p-3 lg:p-4 rounded-full bg-slate-800/80 backdrop-blur-sm border border-slate-600 hover:border-teal-400 transition-all duration-300 shadow-lg cursor-pointer"
         >
           <ChevronLeft className="w-6 h-6 lg:w-8 lg:h-8 text-white hover:text-teal-400 transition-colors" />
         </motion.button>
@@ -355,7 +338,7 @@ const Projects = () => {
           onClick={goToNext}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
-          className="absolute lg:right-5 xl:right-50 2xl:right-80 top-1/2 -translate-y-1/2 z-20 p-3 lg:p-4 rounded-full bg-slate-800/80 backdrop-blur-sm border border-slate-600 hover:border-teal-400 transition-all duration-300 shadow-lg"
+          className="absolute lg:right-5 xl:right-50 2xl:right-80 top-1/2 -translate-y-1/2 z-20 p-3 lg:p-4 rounded-full bg-slate-800/80 backdrop-blur-sm border border-slate-600 hover:border-teal-400 transition-all duration-300 shadow-lg cursor-pointer"
         >
           <ChevronRight className="w-6 h-6 lg:w-8 lg:h-8 text-white hover:text-teal-400 transition-colors" />
         </motion.button>

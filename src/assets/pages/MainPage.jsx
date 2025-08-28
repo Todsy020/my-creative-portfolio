@@ -6,7 +6,7 @@ import BreakPointIndic from '../components/BreakPointIndic';
 const MainPage = () => {
   return (
     <>
-      {/* <BreakPointIndic /> */}
+      <BreakPointIndic />
       <FirstSection />
       <SecondSection />
       <ThirdSection />
