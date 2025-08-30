@@ -46,7 +46,6 @@ const words = text.split(' ');
 
 const FirstSection = () => {
   const firstSectionRef = useRef(null);
-  const [confettis, setConfettis] = useState([]);
   const [startAnim, setStartAnim] = useState(false);
   const [windowSize, setWindowSize] = useState({
     width: 0,
@@ -66,26 +65,6 @@ const FirstSection = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const clapClick = () => {
-    const sound = new Audio('clap-song.mp3');
-    sound.volume = 0.25;
-    sound.play();
-    const spreadX = windowSize.width * 0.2;
-    const spreadY = windowSize.height * 0.2;
-
-    const newConfettis = Array(15)
-      .fill(0)
-      .map((_, i) => ({
-        id: Date.now() + i,
-        x: (Math.random() - 0.5) * spreadX,
-        y: (Math.random() - 0.5) * spreadY,
-        delay: i * 0.03,
-      }));
-    setConfettis(newConfettis);
-
-    setTimeout(() => setConfettis([]), 1500);
-  };
-
   const { scrollYProgress } = useScroll();
 
   const scaleSection = useTransform(
@@ -94,7 +73,7 @@ const FirstSection = () => {
     [1, 0.7]
   );
   // Convertir 55vh en pixels
-  const offset = window.innerHeight * 1;
+  const offset = window.innerHeight * 0.5;
 
   const helloRawY = useTransform(
     scrollYProgress,
@@ -102,8 +81,8 @@ const FirstSection = () => {
     [0, offset]
   );
   const helloSmoothY = useSpring(helloRawY, {
-    stiffness: 80,
-    damping: 10,
+    stiffness: 70,
+    damping: 15,
   });
 
   const helloOpacity = useTransform(
