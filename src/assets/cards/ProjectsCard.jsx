@@ -8,11 +8,6 @@ const ProjectsCard = ({ setOpen2 }) => {
     <motion.div
       layoutId="card2"
       className="fixed top-0 left-0 w-full h-screen z-50 bg-slate-900 overflow-y-auto"
-      style={{
-        backgroundImage: "url('/bg_projects.svg')",
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
     >
       <NeuralBackground />
       {/* Bouton de fermeture responsive */}
