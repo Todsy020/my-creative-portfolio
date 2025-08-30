@@ -1,16 +1,13 @@
 import { defineConfig } from 'vite';
-import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
+import tailwindcss from '@tailwindcss/vite';
 
-// https://vite.dev/config/
 export default defineConfig({
-  plugins: [tailwindcss(), react()],
-  //a supp ptet
-  server: {
-    host: true,
-    port: 5173,
-    strictPort: true,
-    // autoriser ton domaine ngrok
-    allowedHosts: ['620e93e2d3a9.ngrok-free.app', 'localhost'],
+  plugins: [react(), tailwindcss()],
+  base: '/', // essentiel pour que les assets dans public/ soient accessibles à la racine
+  build: {
+    outDir: 'dist', // dossier de build attendu par Vercel
+    assetsDir: 'assets', // optionnel, pour organiser les fichiers statiques
   },
 });
+22;

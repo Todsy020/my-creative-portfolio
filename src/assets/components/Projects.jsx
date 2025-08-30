@@ -5,6 +5,10 @@ import {
   ChevronLeft,
   ChevronRight,
 } from 'lucide-react';
+import hypersplash from '/medias/Hyper-splash.png';
+import portfolio from '/medias/portfolio.png';
+import pfm from '/medias/PFM.png';
+import comingsoon from '/medias/coming-soon.png';
 
 const Projects = () => {
   const projects = [
@@ -12,7 +16,7 @@ const Projects = () => {
       title: 'Portfolio',
       description:
         'My portfolio serves to introduce myself and showcase my work through an original visual navigation that blends 3D animation, motion design, and customized 2D elements. The goal is to offer a glimpse of my creative vision by combining various styles and software.',
-      image: '/medias/portfolio.png',
+      image: portfolio,
       technologies: [
         'React',
         'Blender',
@@ -27,7 +31,7 @@ const Projects = () => {
       title: 'Hypersplash',
       description:
         'Hypersplash is an immersive and creative website showcasing a collection of fictional cans, each featuring a unique, handmade design. Blending graphic design, animation, and interactivity, it delivers a striking and memorable user experience.',
-      image: '/medias/Hyper-splash.png',
+      image: hypersplash,
       technologies: [
         'React',
         'Node.js',
@@ -42,7 +46,7 @@ const Projects = () => {
       title: 'PureF#Madness',
       description:
         'Pure F# Madness is a raw and impactful showcase website that introduces the work of an independent, underground French artist. It showcases his work with bold art direction, with every visual element handcrafted by the artist himself. The site immerses visitors in a unique universe where creativity meets raw intensity.',
-      image: '/medias/PFM.png',
+      image: pfm,
       technologies: ['React', 'React Router', 'Framer motion'],
       external: 'https://purefuckingmadness.netlify.app/',
     },
@@ -50,7 +54,7 @@ const Projects = () => {
       title: 'Dev qui Dev',
       description:
         "Dev qui Dev is a bold showcase website designed to demonstrate the full range of a developer's skills. From API integrations to dynamic UI/UX, the project highlights versatility and technical mastery across multiple stacks. It's a creative playground that proves the ability to handle both the artistic and technical sides of modern web development.",
-      image: '/medias/coming-soon.png',
+      image: comingsoon,
       technologies: [
         'React',
         'Next.js',
