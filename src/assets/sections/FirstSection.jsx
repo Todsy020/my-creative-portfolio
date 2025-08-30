@@ -5,7 +5,6 @@ import {
   useSpring,
 } from 'framer-motion';
 import { useEffect, useState, useRef } from 'react';
-import avatarVideo from '../../../medias/avatar_anim_HELLO.webm';
 const helloContainerAnim = {
   hidden: { opacity: 1 },
   visible: {
@@ -185,7 +184,7 @@ const FirstSection = () => {
         className="absolute bottom-0 left-1/2 -translate-x-1/2 z-20 opacity-100 w-[100vw] md:w-[60vw] lg:w-[55vw] xl:w-[50vw] max-w-[900px]"
       >
         <video
-          src={avatarVideo}
+          src="/medias/avatar_anim_HELLO.webm"
           preload="auto"
           autoPlay
           loop
@@ -195,35 +194,6 @@ const FirstSection = () => {
           aria-hidden="true"
         />
       </motion.div>
-
-      <div
-        id="clap-div"
-        onClick={clapClick}
-        className="absolute bottom-[8vh] sm:bottom-[10vh] md:bottom-[12vh] lg:bottom-[15vh] left-[5vw] md:left-[10vw] lg:left-[12vw] w-[12vw] h-[15vw] sm:w-[10vw] sm:h-[12vw] md:w-[8vw] md:h-[10vw] lg:w-[120px] lg:h-[150px] cursor-pointer z-20 min-w-[50px] min-h-[60px] max-w-[120px] max-h-[150px]"
-      >
-        <audio src="/sounds/clap.mp3" />
-        {confettis.map(({ id, x, y, delay }) => (
-          <motion.div
-            key={id}
-            initial={{ scale: 0, opacity: 1, x: 0, y: 0 }}
-            animate={{ scale: 3, opacity: 0, x, y }}
-            transition={{ delay, duration: 0.8 }}
-            style={{
-              position: 'absolute',
-              width: windowSize.width < 768 ? 6 : 10,
-              height: windowSize.width < 768 ? 6 : 10,
-              backgroundColor: `hsl(${
-                Math.random() * 360
-              }, 100%, 60%)`,
-              borderRadius: '50%',
-              pointerEvents: 'none',
-              top: '50%',
-              left: '50%',
-              transformOrigin: 'center',
-            }}
-          />
-        ))}
-      </div>
     </motion.section>
   );
 };

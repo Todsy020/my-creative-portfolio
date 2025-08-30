@@ -8,9 +8,6 @@ import { useRef, useState, useEffect } from 'react';
 import GetInTouch from '../components/GetInTouch';
 import ContactForm from '../components/ContactForm';
 import AnimatedBackground2 from '../background/AnimatedBackground2';
-//medias :
-import phoneAnim from '../../../medias/phone_anim.webm';
-
 const FourthSection = () => {
   const fourthSectionRef = useRef(null);
 
@@ -75,9 +72,9 @@ const FourthSection = () => {
         }}
         className="relative mb-4 md:mb-8 max-w-[95vw] md:max-w-4xl mx-auto z-10 lg:top-15 2xl:-top-2"
       >
-        <h2 className="text-c-4xl md:text-c-6xl lg:text-c-5xl xl:text-c-7xl font-bold text-center mb-3 md:mb-6 lg:mb-3 xl:mb-2 xl:mt-10 bg-gradient-to-r from-purple-500 via-indigo-400 to-cyan-400 bg-clip-text text-transparent leading-tight font-tanker">
+        <motion.h2 className="text-c-4xl md:text-c-6xl lg:text-c-5xl xl:text-c-7xl font-bold text-center mb-3 md:mb-6 lg:mb-3 xl:mb-2 xl:mt-10 bg-gradient-to-r from-purple-500 via-indigo-400 to-cyan-400 bg-clip-text text-transparent leading-tight font-tanker animate-gradient">
           Let's talk !
-        </h2>
+        </motion.h2>
         <p className="text-c-sm md:text-c-lg lg:text-c-base text-gray-200/90 max-w-[90vw] md:max-w-xl mx-auto leading-6 text-center px-2 lg:px-0 font-medium xl:mb-5">
           Have a project in mind or just want to say hello? I'd love
           to hear from you. Drop me a message and let's create
@@ -87,7 +84,7 @@ const FourthSection = () => {
 
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-20 w-[85vw] md:w-[65vw] lg:w-[55vw] xl:w-[900px] max-w-[900px]">
         <video
-          src={phoneAnim}
+          src="/medias/phone_anim.webm"
           autoPlay
           loop
           muted

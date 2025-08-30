@@ -9,7 +9,7 @@ const GetInTouch = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay: 0.2 }}
     >
-      <div className="w-full max-w-[90vw] sm:max-w-[400px] lg:w-[400px] bg-gray-900/80 backdrop-blur-lg rounded-3xl p-6 md:p-8 shadow-2xl border border-gray-700 hover:shadow-3xl hover:bg-gray-800 transition-all duration-500 relative overflow-hidden group">
+      <div className="w-full max-w-[90vw] sm:max-w-[400px] lg:w-[400px] bg-gray-900/80 backdrop-blur-lg rounded-3xl p-6 md:p-8 shadow-2xl border border-gray-700 hover:shadow-3xl transition-all duration-500 relative overflow-hidden group">
         {/* Shimmer Effect */}
         <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
@@ -21,7 +21,7 @@ const GetInTouch = () => {
 
         <div className="mb-8 space-y-6">
           <motion.div
-            className="flex items-center gap-4 p-4 rounded-2xl bg-gray-800 hover:bg-gray-700 transition-all duration-300 group/item"
+            className="flex items-center gap-4 p-4 rounded-2xl bg-gray-800 transition-all duration-300 group/item"
             whileHover={{ scale: 1.02 }}
             transition={{ type: 'spring', stiffness: 300 }}
           >
@@ -41,7 +41,7 @@ const GetInTouch = () => {
           </motion.div>
 
           <motion.div
-            className="flex items-center gap-4 p-4 rounded-2xl bg-gray-800 hover:bg-gray-700 transition-all duration-300 group/item"
+            className="flex items-center gap-4 p-4 rounded-2xl bg-gray-800 transition-all duration-300 group/item"
             whileHover={{ scale: 1.02 }}
             transition={{ type: 'spring', stiffness: 300 }}
           >
@@ -61,7 +61,7 @@ const GetInTouch = () => {
           </motion.div>
 
           <motion.div
-            className="flex items-center gap-4 p-4 rounded-2xl bg-gray-800 hover:bg-gray-700 transition-all duration-300 group/item"
+            className="flex items-center gap-4 p-4 rounded-2xl bg-gray-800 transition-all duration-300 group/item"
             whileHover={{ scale: 1.02 }}
             transition={{ type: 'spring', stiffness: 300 }}
           >
