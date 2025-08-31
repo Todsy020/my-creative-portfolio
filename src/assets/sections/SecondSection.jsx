@@ -3,6 +3,10 @@ import { useEffect, useState, useRef } from 'react';
 import { useScroll, useTransform, useSpring } from 'framer-motion';
 import GeometricBackground from '../background/GeometricBackground';
 import SpotlightCard from '../components/SpotlightCard'; // <-- ton composant spotlight
+import linkAnim from '/medias/anim_link.webm';
+import canAnim from '/medias/can_anim.webm';
+import hyperSplash from '/medias/Hyper-splash.png';
+import hpWhipCan from '/medias/hp_whip_pan.webm';
 
 const SecondSection = () => {
   const [isDesktop, setIsDesktop] = useState(true);
@@ -189,7 +193,7 @@ const SecondSection = () => {
           muted
           playsInline
           className="absolute rounded-xl md:w-[25vw] lg:w-[27vw] xl:w-[25vw] 2xl:w-[23vw] max-w-[45vw] -left-[8vw] md:-left-[3vw] lg:-left-[5vw] xl:-left-[7rem] 2xl:-left-[2rem] top-[6vh] md:top-[12vh] lg:top-[2rem] xl:top-[2rem]"
-          src="/medias/hp_whip_pan.webm"
+          src={hpWhipCan}
         />
 
         {/* Image right */}
@@ -200,7 +204,7 @@ const SecondSection = () => {
             rotateZ: '15deg',
           }}
           className="absolute rounded-xl md:w-[30vw] lg:w-[35vw] xl:w-[32vw] 2xl:w-[26vw] max-w-[55vw] -right-[5vw] md:-right-[3vw] lg:-right-[5vw] xl:-right-[5rem] 2xl:right-[0rem] top-[19vh] md:top-[25vh] lg:-top-0 xl:top-15"
-          src="/medias/Hyper-splash.png"
+          src={hyperSplash}
         />
 
         {/* Video bottom left */}
@@ -216,7 +220,7 @@ const SecondSection = () => {
           muted
           playsInline
           className="absolute rounded-xl md:w-[25vw] lg:w-[19vw] xl:w-[18vw] 2xl:w-[18vw] max-w-[40vw] -left-[9vw] md:-left-[2vw] lg:-left-[0vw] xl:-left-[2rem] 2xl:left-[2rem] bottom-[8vh] md:bottom-[12vh] lg:bottom-[0rem] xl:bottom-[3rem]"
-          src="/medias/can_anim.webm"
+          src={canAnim}
         />
 
         {/* Video bottom right */}
@@ -232,7 +236,7 @@ const SecondSection = () => {
           muted
           playsInline
           className="absolute rounded-xl md:w-[25vw] lg:w-[20vw] xl:w-[19vw] 2xl:w-[17vw] max-w-[42vw] -right-[5vw] md:-right-[3vw] lg:-right-[2vw] xl:-right-[1rem] 2xl:right-[4rem] bottom-[10vh] md:bottom-[10vh] lg:bottom-[2rem] xl:bottom-[2rem] 2xl:bottom-[5rem]"
-          src="/medias/anim_link.webm"
+          src={linkAnim}
         />
       </SpotlightCard>
     </motion.section>

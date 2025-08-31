@@ -12,6 +12,8 @@ import ProjectsCard from '../cards/ProjectsCard';
 import AnimatedBackground from '../background/AnimatedBackground';
 import { ArrowUpRight } from 'lucide-react';
 import { ArrowUpLeft } from 'lucide-react';
+import textScreen from '/medias/Text_screen.webm';
+import idCardAnim from '/medias/id_card_anim.webm';
 
 const ThirdSection = () => {
   const thirdSectionRef = useRef(null);
@@ -119,7 +121,7 @@ const ThirdSection = () => {
           >
             <video
               className="absolute bottom-[2.5rem] right-[7.5rem] w-full h-full object-cover blur-xs group-hover:blur-none"
-              src="/medias/id_card_anim.webm"
+              src={idCardAnim}
               autoPlay
               loop
               muted
@@ -174,7 +176,7 @@ const ThirdSection = () => {
           >
             <video
               className="absolute top-0 left-[1.5rem] w-full h-full object-cover blur-xs group-hover:blur-none"
-              src="/medias/Text_screen.webm"
+              src={textScreen}
               autoPlay
               loop
               muted
@@ -414,7 +416,7 @@ const ThirdSection = () => {
           >
             <video
               className="absolute top-0 left-0 w-full h-full object-cover"
-              src="/medias/id_card_anim.webm"
+              src={idCardAnim}
               autoPlay
               loop
               muted
@@ -570,7 +572,7 @@ const ThirdSection = () => {
           >
             <video
               className="absolute top-0 left-0 w-full h-full object-cover"
-              src="/medias/Text_screen.webm"
+              src={textScreen}
               autoPlay
               loop
               muted

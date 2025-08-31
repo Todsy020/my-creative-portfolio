@@ -5,6 +5,7 @@ import {
   useSpring,
 } from 'framer-motion';
 import { useEffect, useState, useRef } from 'react';
+import helloAnim from '/medias/avatar_anim_HELLO.webm';
 const helloContainerAnim = {
   hidden: { opacity: 1 },
   visible: {
@@ -47,23 +48,6 @@ const words = text.split(' ');
 const FirstSection = () => {
   const firstSectionRef = useRef(null);
   const [startAnim, setStartAnim] = useState(false);
-  const [windowSize, setWindowSize] = useState({
-    width: 0,
-    height: 0,
-  });
-
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowSize({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      });
-    };
-
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
 
   const { scrollYProgress } = useScroll();
 
@@ -163,7 +147,7 @@ const FirstSection = () => {
         className="absolute bottom-0 left-1/2 -translate-x-1/2 z-20 opacity-100 w-[100vw] md:w-[60vw] lg:w-[55vw] xl:w-[50vw] max-w-[900px]"
       >
         <video
-          src="/medias/avatar_anim_HELLO.webm"
+          src={helloAnim}
           preload="auto"
           autoPlay
           loop

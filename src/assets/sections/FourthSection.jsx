@@ -8,6 +8,7 @@ import { useRef, useState, useEffect } from 'react';
 import GetInTouch from '../components/GetInTouch';
 import ContactForm from '../components/ContactForm';
 import AnimatedBackground2 from '../background/AnimatedBackground2';
+import phoneAnim from '/medias/phone_anim.webm';
 const FourthSection = () => {
   const fourthSectionRef = useRef(null);
 
@@ -84,7 +85,7 @@ const FourthSection = () => {
 
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-20 w-[85vw] md:w-[65vw] lg:w-[55vw] xl:w-[900px] max-w-[900px]">
         <video
-          src="/medias/phone_anim.webm"
+          src={phoneAnim}
           autoPlay
           loop
           muted
