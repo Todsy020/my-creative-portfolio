@@ -10,4 +10,3 @@ export default defineConfig({
     assetsDir: 'assets', // optionnel, pour organiser les fichiers statiques
   },
 });
-22;
