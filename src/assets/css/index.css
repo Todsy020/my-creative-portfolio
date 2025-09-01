@@ -111,3 +111,33 @@ body {
   background-size: 200% 200%;
   animation: gradient 2.5s ease infinite;
 }
+
+html,
+body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+.mobile-text-fix {
+  -webkit-text-stroke: 0 transparent;
+}
+
+/* patch-ios.css */
+
+/* 1. Aide Safari à lisser le scroll */
+.ios-smooth {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* 2. Force le GPU à gérer les animations */
+.gpu {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* 3. Fix scintillement sur gradients/vidéos */
+.ios-fix {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}

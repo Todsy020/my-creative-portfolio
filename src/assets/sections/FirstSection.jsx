@@ -6,13 +6,12 @@ import {
 } from 'framer-motion';
 import { useEffect, useState, useRef } from 'react';
 import helloAnim from '/medias/avatar_anim_HELLO.webm';
+
 const helloContainerAnim = {
   hidden: { opacity: 1 },
   visible: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.07,
-    },
+    transition: { staggerChildren: 0.07 },
   },
 };
 
@@ -40,7 +39,6 @@ const avatarImgContainerAnim = {
   },
 };
 
-// Setup pour le texte de présentation
 const text =
   "I'm Théodore, a creative developer based in Paris. I work with brands to craft unique and memorable experiences.";
 const words = text.split(' ');
@@ -56,7 +54,6 @@ const FirstSection = () => {
     [0, 1],
     [1, 0.7]
   );
-  // Convertir 55vh en pixels
   const offset = window.innerHeight * 0.5;
 
   const helloRawY = useTransform(
@@ -92,6 +89,7 @@ const FirstSection = () => {
           experience, please visit this site on a desktop.
         </p>
       </div>
+
       <motion.p
         style={{ y: helloSmoothY, opacity: helloOpacity }}
         className="relative top-10 text-zinc-600 text-c-base md:text-c-xl lg:text-c-xl font-inter text-center max-w-[90vw] md:max-w-[70vw] lg:max-w-[60vw] xl:max-w-[60vw] w-full text-shadow-2xs lg:mb-10 xl:top-20 2xl:top-40"
@@ -153,7 +151,7 @@ const FirstSection = () => {
           loop
           muted
           playsInline
-          className="w-full h-auto object-cover"
+          className="w-full h-auto object-contain pointer-events-none select-none"
           aria-hidden="true"
         />
       </motion.div>

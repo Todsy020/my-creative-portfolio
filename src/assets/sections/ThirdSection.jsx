@@ -452,7 +452,7 @@ const ThirdSection = () => {
             className="h-1/3 flex flex-col justify-center items-center text-center px-4 overflow-hidden md:h-2/4 scale-92 md:scale-100"
           >
             {/* Main Title */}
-            <h3 className="text-c-2xl md:text-c-3xl font-tanker text-white leading-tight">
+            <h3 className="text-c-2xl md:text-c-3xl font-tanker text-white leading-tight mobile-text-fix">
               Hi, I'm{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-500 animate-gradient">
                 Théodore
@@ -460,7 +460,7 @@ const ThirdSection = () => {
             </h3>
 
             {/* Subtitle */}
-            <p className="text-c-base md:text-c-xl text-slate-300 mb-4 mt-2 font-inter">
+            <p className="text-c-base md:text-c-xl text-slate-300 mb-4 mt-2 font-inter mobile-text-fix">
               Creative Developer & Digital Artist
             </p>
 
@@ -478,7 +478,7 @@ const ThirdSection = () => {
                     <path d="M8 3a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H8zM7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z" />
                   </svg>
                 </div>
-                <p className="text-c-xs text-slate-300 font-medium">
+                <p className="text-c-xs text-slate-300 font-medium mobile-text-fix">
                   Dev
                 </p>
               </li>
@@ -495,7 +495,7 @@ const ThirdSection = () => {
                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                   </svg>
                 </div>
-                <p className="text-c-xs text-slate-300 font-medium">
+                <p className="text-c-xs text-slate-300 font-medium mobile-text-fix">
                   Design
                 </p>
               </li>
@@ -512,7 +512,7 @@ const ThirdSection = () => {
                     <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
                   </svg>
                 </div>
-                <p className="text-c-xs text-slate-300 font-medium">
+                <p className="text-c-xs text-slate-300 font-medium mobile-text-fix">
                   Anim
                 </p>
               </li>
@@ -529,7 +529,7 @@ const ThirdSection = () => {
                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
                   </svg>
                 </div>
-                <p className="text-c-xs text-slate-300 font-medium">
+                <p className="text-c-xs text-slate-300 font-medium mobile-text-fix">
                   Web
                 </p>
               </li>
@@ -538,26 +538,26 @@ const ThirdSection = () => {
             {/* Stats - Compact */}
             <ul className="grid grid-cols-3 gap-2 w-full max-w-xs md:max-w-lg mt-9 md:mt-8">
               <li className="text-center">
-                <p className="text-c-xl md:text-c-2xl font-tanker text-white">
+                <p className="text-c-xl md:text-c-2xl font-tanker text-white mobile-text-fix">
                   1+
                 </p>
-                <p className="text-c-sm md:text-c-xl text-slate-400 font-inter">
+                <p className="text-c-sm md:text-c-xl text-slate-400 font-inter mobile-text-fix">
                   Years
                 </p>
               </li>
               <li className="text-center">
-                <p className="text-c-xl md:text-c-2xl font-tanker text-white">
+                <p className="text-c-xl md:text-c-2xl font-tanker text-white mobile-text-fix">
                   10+
                 </p>
-                <p className="text-c-sm md:text-c-xl text-slate-400 font-inter">
+                <p className="text-c-sm md:text-c-xl text-slate-400 font-inter mobile-text-fix">
                   Projects
                 </p>
               </li>
               <li className="text-center">
-                <p className="text-c-xl md:text-c-2xl font-tanker text-white">
+                <p className="text-c-xl md:text-c-2xl font-tanker text-white mobile-text-fix">
                   100%
                 </p>
-                <p className="text-c-sm md:text-c-xl text-slate-400 font-inter">
+                <p className="text-c-sm md:text-c-xl text-slate-400 font-inter mobile-text-fix">
                   Quality
                 </p>
               </li>
