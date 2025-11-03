@@ -89,7 +89,7 @@ const GeometricBackground = () => {
         <motion.div
           className="absolute inset-0 bg-gradient-to-r from-transparent via-cyan-500/20 to-transparent"
           animate={{
-            x: [-200, window.innerWidth + 200],
+            x: ['-100%', '200%'],
             opacity: [0, 1, 0],
           }}
           transition={{
@@ -101,7 +101,7 @@ const GeometricBackground = () => {
         <motion.div
           className="absolute inset-0 bg-gradient-to-l from-transparent via-purple-500/20 to-transparent"
           animate={{
-            x: [window.innerWidth + 200, -200],
+            x: ['200%', '-100%'],
             opacity: [0, 1, 0],
           }}
           transition={{

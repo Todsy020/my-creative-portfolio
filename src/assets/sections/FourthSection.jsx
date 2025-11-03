@@ -4,7 +4,10 @@ import {
   motion,
   useSpring,
 } from 'framer-motion';
-import { useRef, useState, useEffect } from 'react';
+import { useRef } from 'react';
+import { useIsDesktop } from '../../hooks/useMediaQuery';
+import { SPRING_CONFIGS } from '../../constants/animations';
+import LazyVideo from '../../components/LazyVideo';
 import GetInTouch from '../components/GetInTouch';
 import ContactForm from '../components/ContactForm';
 import AnimatedBackground2 from '../background/AnimatedBackground2';
@@ -12,6 +15,7 @@ import phoneAnim from '/medias/phone_anim.webm';
 
 const FourthSection = () => {
   const fourthSectionRef = useRef(null);
+  const isDesktop = useIsDesktop();
 
   const { scrollYProgress: rotateScrollYProgress } = useScroll({
     target: fourthSectionRef,
@@ -21,18 +25,6 @@ const FourthSection = () => {
     target: fourthSectionRef,
     offset: ['start 45%', 'start 5%'],
   });
-
-  const [isDesktop, setIsDesktop] = useState(true);
-
-  useEffect(() => {
-    const handleResize = () =>
-      setIsDesktop(
-        typeof window !== 'undefined' && window.innerWidth > 1024
-      );
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
 
   const rotateFourthSection = useTransform(
     rotateScrollYProgress,
@@ -87,13 +79,8 @@ const FourthSection = () => {
       </motion.div>
 
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-20 w-[85vw] md:w-[65vw] lg:w-[55vw] xl:w-[900px] max-w-[900px]">
-        <video
+        <LazyVideo
           src={phoneAnim}
-          preload="auto"
-          autoPlay
-          loop
-          muted
-          playsInline
           className="w-full h-auto object-cover"
           aria-hidden="true"
         />

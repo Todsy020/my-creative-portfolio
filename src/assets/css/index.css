@@ -121,23 +121,36 @@ body {
   -webkit-text-stroke: 0 transparent;
 }
 
-/* patch-ios.css */
+/* patch-ios.css - Optimized for performance */
 
 /* 1. Aide Safari à lisser le scroll */
 .ios-smooth {
   -webkit-overflow-scrolling: touch;
 }
 
-/* 2. Force le GPU à gérer les animations */
+/* 2. Optimized GPU acceleration - only trigger will-change during interaction */
 .gpu {
-  will-change: transform;
   transform: translateZ(0);
 }
 
-/* 3. Fix scintillement sur gradients/vidéos */
+/* Only activate will-change when element is being interacted with */
+.gpu:hover,
+.gpu:active,
+.gpu.animating {
+  will-change: transform;
+}
+
+/* 3. Fix scintillement sur gradients/vidéos (iOS) */
 .ios-fix {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
+}
+
+/* 4. Smooth transitions for reduced motion users */
+@media (prefers-reduced-motion: no-preference) {
+  .gpu {
+    transition: transform 0.2s ease-out;
+  }
 }

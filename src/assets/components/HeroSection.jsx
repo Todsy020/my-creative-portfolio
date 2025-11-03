@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { FileDown } from 'lucide-react';
 import AnimatedBackground3 from '../background/AnimatedBackground3';
 
 const containerVariants = {
@@ -115,6 +116,29 @@ const HeroSection = () => {
               experiences.
             </p>
           </div>
+
+          {/* CV Download Button */}
+          <motion.a
+            href="/medias/CV_Théodore_Deconinck.pdf"
+            download="CV_Theodore_Deconinck.pdf"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.3, duration: 0.5 }}
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.95 }}
+            className="mt-4 mx-auto flex items-center gap-2 px-4 py-2 md:px-6 md:py-3
+                       bg-gradient-to-r from-teal-600 to-teal-500
+                       hover:from-teal-700 hover:to-teal-600
+                       text-white font-semibold rounded-lg
+                       shadow-lg hover:shadow-xl
+                       transition-all duration-300
+                       group cursor-pointer w-fit"
+          >
+            <FileDown className="w-5 h-5 group-hover:animate-bounce" />
+            <span className="font-inter text-sm md:text-base">
+              Download my CV
+            </span>
+          </motion.a>
         </motion.div>
 
         {/* Right Column */}
@@ -142,35 +166,25 @@ const HeroSection = () => {
                 <span className="text-teal-400 font-semibold">
                   Development:
                 </span>{' '}
-                JavaScript (ES6+), Next.js, React, Node.js,
-                Express.js, MongoDB, HTML5, CSS3, TailwindCSS
+                Next.js, React, TypeScript, PostgreSQL, Prisma, Node.js, MongoDB
               </motion.li>
               <motion.li
                 variants={childVariants}
                 className="relative pl-5 before:absolute before:left-0 before:text-teal-400 before:content-['▹']"
               >
                 <span className="text-teal-400 font-semibold">
-                  3D:
+                  Design & 3D:
                 </span>{' '}
-                Blender, Spline
+                Illustrator, Photoshop, After Effects, Premiere Pro, Blender
               </motion.li>
               <motion.li
                 variants={childVariants}
                 className="relative pl-5 before:absolute before:left-0 before:text-teal-400 before:content-['▹']"
               >
                 <span className="text-teal-400 font-semibold">
-                  Creative Suite:
+                  Tools:
                 </span>{' '}
-                Illustrator, Photoshop, After Effects, Premiere Pro...
-              </motion.li>
-              <motion.li
-                variants={childVariants}
-                className="relative pl-5 before:absolute before:left-0 before:text-teal-400 before:content-['▹']"
-              >
-                <span className="text-teal-400 font-semibold">
-                  Audio & Music:
-                </span>{' '}
-                FL Studio
+                Git, Figma, TailwindCSS, FL Studio
               </motion.li>
             </motion.ul>
           </motion.div>

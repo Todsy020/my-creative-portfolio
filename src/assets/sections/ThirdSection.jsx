@@ -7,6 +7,9 @@ import {
   useInView,
 } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
+import { useIsDesktop } from '../../hooks/useMediaQuery';
+import { TIMING, SPRING_CONFIGS } from '../../constants/animations';
+import LazyVideo from '../../components/LazyVideo';
 import PortfolioCard from '../cards/PortfolioCard';
 import ProjectsCard from '../cards/ProjectsCard';
 import AnimatedBackground from '../background/AnimatedBackground';
@@ -20,23 +23,27 @@ const ThirdSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   const [number, setNumber] = useState(0);
+  const isDesktop = useIsDesktop();
 
   useEffect(() => {
-    if (isInView) {
-      let start = 0;
-      const end = 100;
-      const duration = 2500; // 2 secondes
-      const increment = end / (duration / 16); // env. 60fps
-      const counter = setInterval(() => {
-        start += increment;
-        if (start >= end) {
-          start = end;
-          clearInterval(counter);
-        }
-        setNumber(Math.round(start));
-      }, 16);
-    }
+    if (!isInView) return;
+
+    let start = 0;
+    const end = 100;
+    const duration = TIMING.COUNTER_DURATION;
+    const increment = end / (duration / TIMING.COUNTER_FPS);
+    const counter = setInterval(() => {
+      start += increment;
+      if (start >= end) {
+        start = end;
+        clearInterval(counter);
+      }
+      setNumber(Math.round(start));
+    }, TIMING.COUNTER_FPS);
+
+    return () => clearInterval(counter);
   }, [isInView]);
+
   const { scrollYProgress: rotateScrollYProgress } = useScroll({
     target: thirdSectionRef,
     offset: ['start end', 'end start'],
@@ -46,16 +53,6 @@ const ThirdSection = () => {
     target: thirdSectionRef,
     offset: ['start 45%', 'start 5%'],
   });
-
-  // Détecte si c'est desktop
-  const [isDesktop, setIsDesktop] = useState(true);
-  useEffect(() => {
-    const handleResize = () =>
-      setIsDesktop(window.innerWidth >= 1024);
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
 
   // Rotation section uniquement sur desktop
   const rotateThirdSection = useTransform(
@@ -119,13 +116,9 @@ const ThirdSection = () => {
             animate={{ width: '50%' }}
             transition={{ duration: 0.4 }}
           >
-            <video
-              className="absolute bottom-[2.5rem] right-[7.5rem] w-full h-full object-cover blur-xs group-hover:blur-none"
+            <LazyVideo
               src={idCardAnim}
-              autoPlay
-              loop
-              muted
-              playsInline
+              className="absolute bottom-[2.5rem] right-[7.5rem] w-full h-full object-cover blur-xs group-hover:blur-none"
               aria-label="Animated character introducing About Me section"
             />
 
@@ -174,13 +167,9 @@ const ThirdSection = () => {
             animate={{ width: '50%' }}
             transition={{ duration: 0.4 }}
           >
-            <video
-              className="absolute top-0 left-[1.5rem] w-full h-full object-cover blur-xs group-hover:blur-none"
+            <LazyVideo
               src={textScreen}
-              autoPlay
-              loop
-              muted
-              playsInline
+              className="absolute top-0 left-[1.5rem] w-full h-full object-cover blur-xs group-hover:blur-none"
               aria-label="Animated display of portfolio work"
             />
             <motion.div className="relative left-[8rem] lg:left-[8rem] top-[8rem] lg:top-[8rem] z-10 flex items-center gap-2 lg:gap-3">
@@ -414,13 +403,9 @@ const ThirdSection = () => {
             onClick={() => setOpen(true)}
             className="relative h-1/3 w-full cursor-pointer"
           >
-            <video
-              className="absolute top-0 left-0 w-full h-full object-cover"
+            <LazyVideo
               src={idCardAnim}
-              autoPlay
-              loop
-              muted
-              playsInline
+              className="absolute top-0 left-0 w-full h-full object-cover"
               aria-label="Animated character introducing About Me section"
             />
 
@@ -570,13 +555,9 @@ const ThirdSection = () => {
             onClick={() => setOpen2(true)}
             className="relative h-1/3 w-full cursor-pointer"
           >
-            <video
-              className="absolute top-0 left-0 w-full h-full object-cover"
+            <LazyVideo
               src={textScreen}
-              autoPlay
-              loop
-              muted
-              playsInline
+              className="absolute top-0 left-0 w-full h-full object-cover"
               aria-label="Animated display of portfolio work"
             />
 

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Send, User, MessageSquare, Sparkles } from 'lucide-react';
 import emailjs from 'emailjs-com';
+import toast from 'react-hot-toast';
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -18,19 +19,34 @@ const ContactForm = () => {
     e.preventDefault();
     setLoading(true);
 
-    const serviceID = 'service_fc4hxbi';
-    const templateID = 'template_gs97c6h';
-    const userID = 'BWMCrUP8STS_S0guD';
+    const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const userID = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
     emailjs
       .send(serviceID, templateID, formData, userID)
       .then(() => {
-        alert('Message sent successfully! Thank you very much.');
+        toast.success('Message sent successfully! Thank you very much.', {
+          duration: 4000,
+          position: 'bottom-center',
+          style: {
+            background: '#10b981',
+            color: '#fff',
+            fontWeight: '600',
+          },
+        });
         setFormData({ name: '', message: '' });
       })
-      .catch((err) => {
-        alert('Failed to send message. Please try again.');
-        console.error(err);
+      .catch(() => {
+        toast.error('Failed to send message. Please try again.', {
+          duration: 4000,
+          position: 'bottom-center',
+          style: {
+            background: '#ef4444',
+            color: '#fff',
+            fontWeight: '600',
+          },
+        });
       })
       .finally(() => setLoading(false));
   };

@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import FirstSection from '../sections/FirstSection';
 import SecondSection from '../sections/SecondSection';
 import ThirdSection from '../sections/ThirdSection';
 import FourthSection from '../sections/FourthSection';
+import { TIMING } from '../../constants/animations';
 
 import helloAnim from '/medias/avatar_anim_HELLO.webm';
 import linkAnim from '/medias/anim_link.webm';
@@ -16,6 +17,8 @@ import phoneAnim from '/medias/phone_anim.webm';
 const MainPage = () => {
   const [loading, setLoading] = useState(true);
   const [offsetExit, setOffsetExit] = useState(false);
+  const loadedCountRef = useRef(0);
+  const hasCompletedRef = useRef(false);
 
   useEffect(() => {
     const videos = [
@@ -27,14 +30,18 @@ const MainPage = () => {
       canAnim,
       hpWhipCan,
     ];
-    let loadedCount = 0;
+
+    const completeLoading = () => {
+      if (hasCompletedRef.current) return;
+      hasCompletedRef.current = true;
+      setOffsetExit(true);
+      setTimeout(() => setLoading(false), TIMING.LOADING_SCREEN_DELAY);
+    };
 
     const checkFinish = () => {
-      loadedCount += 1;
-      if (loadedCount === videos.length) {
-        // Décalage avant disparition
-        setOffsetExit(true);
-        setTimeout(() => setLoading(false), 500);
+      loadedCountRef.current += 1;
+      if (loadedCountRef.current === videos.length) {
+        completeLoading();
       }
     };
 
@@ -45,17 +52,17 @@ const MainPage = () => {
       video.muted = true;
       video.playsInline = true;
       video.onloadeddata = checkFinish;
+      video.onerror = checkFinish; // Also count errors to prevent hanging
     });
 
-    // Fallback timeout iOS si certaines vidéos ne déclenchent jamais onloadeddata
+    // Fallback timeout for slow connections or iOS issues
     const timeout = setTimeout(() => {
-      if (loading) {
-        setOffsetExit(true);
-        setTimeout(() => setLoading(false), 500);
-      }
-    }, 6000);
+      completeLoading();
+    }, TIMING.LOADING_FALLBACK_TIMEOUT);
 
-    return () => clearTimeout(timeout);
+    return () => {
+      clearTimeout(timeout);
+    };
   }, []);
 
   return (
@@ -82,12 +89,12 @@ const MainPage = () => {
       </AnimatePresence>
 
       {!loading && (
-        <>
+        <main role="main">
           <FirstSection />
           <SecondSection />
           <ThirdSection />
           <FourthSection />
-        </>
+        </main>
       )}
     </>
   );

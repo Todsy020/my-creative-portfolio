@@ -5,6 +5,7 @@ import {
   ChevronLeft,
   ChevronRight,
 } from 'lucide-react';
+import nookd from '/medias/nooked.png';
 import hypersplash from '/medias/Hyper-splash.png';
 import portfolio from '/medias/portfolio.png';
 import pfm from '/medias/PFM.png';
@@ -12,6 +13,21 @@ import comingsoon from '/medias/coming-soon.png';
 
 const Projects = () => {
   const projects = [
+    {
+      title: 'Nookd',
+      description:
+        'Nookd is an intelligent bookmarking SaaS platform built with Next.js, React, TypeScript, PostgreSQL, Prisma, and Better Auth. It features secure OAuth 2.0 authentication, optimized database indexes, and full internationalization (FR/EN) with next-intl for a seamless user experience.',
+      image: nookd,
+      technologies: [
+        'Next.js',
+        'React',
+        'TypeScript',
+        'PostgreSQL',
+        'Prisma',
+        'Better Auth',
+      ],
+      external: 'https://www.nookd.fr',
+    },
     {
       title: 'Portfolio',
       description:

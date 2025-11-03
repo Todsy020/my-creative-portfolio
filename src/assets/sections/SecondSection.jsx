@@ -1,21 +1,18 @@
 import { motion } from 'framer-motion';
-import { useEffect, useState, useRef } from 'react';
+import { useRef } from 'react';
 import { useScroll, useTransform, useSpring } from 'framer-motion';
 import GeometricBackground from '../background/GeometricBackground';
 import SpotlightCard from '../components/SpotlightCard';
+import { useIsDesktop } from '../../hooks/useMediaQuery';
+import { SPRING_CONFIGS } from '../../constants/animations';
+import LazyVideo from '../../components/LazyVideo';
 import linkAnim from '/medias/anim_link.webm';
 import canAnim from '/medias/can_anim.webm';
 import hyperSplash from '/medias/Hyper-splash.png';
 import hpWhipCan from '/medias/hp_whip_pan.webm';
 
 const SecondSection = () => {
-  const [isDesktop, setIsDesktop] = useState(true);
-  useEffect(() => {
-    const handleResize = () => setIsDesktop(window.innerWidth > 1024);
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  const isDesktop = useIsDesktop();
 
   const secondSectionRef = useRef(null);
 
@@ -178,19 +175,17 @@ const SecondSection = () => {
         </motion.div>
 
         {/* Vidéo top left */}
-        <motion.video
+        <LazyVideo
           id="hp_whip_pan"
-          style={{
-            y: video1Y,
-            opacity: video1Opacity,
-            rotateZ: '-15deg',
-          }}
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute rounded-xl md:w-[25vw] lg:w-[27vw] xl:w-[25vw] 2xl:w-[23vw] max-w-[45vw] -left-[8vw] md:-left-[3vw] lg:-left-[5vw] xl:-left-[7rem] 2xl:-left-[2rem] top-[6vh] md:top-[12vh] lg:top-[2rem] xl:top-[2rem] gpu ios-fix"
           src={hpWhipCan}
+          motionProps={{
+            style: {
+              y: video1Y,
+              opacity: video1Opacity,
+              rotateZ: '-15deg',
+            },
+          }}
+          className="absolute rounded-xl md:w-[25vw] lg:w-[27vw] xl:w-[25vw] 2xl:w-[23vw] max-w-[45vw] -left-[8vw] md:-left-[3vw] lg:-left-[5vw] xl:-left-[7rem] 2xl:-left-[2rem] top-[6vh] md:top-[12vh] lg:top-[2rem] xl:top-[2rem] gpu ios-fix"
         />
 
         {/* Image right */}
@@ -200,40 +195,38 @@ const SecondSection = () => {
             opacity: image1Opacity,
             rotateZ: '15deg',
           }}
+          loading="lazy"
           className="absolute rounded-xl md:w-[30vw] lg:w-[35vw] xl:w-[32vw] 2xl:w-[26vw] max-w-[55vw] -right-[5vw] md:-right-[3vw] lg:-right-[5vw] xl:-right-[5rem] 2xl:right-[0rem] top-[19vh] md:top-[25vh] lg:-top-0 xl:top-15 gpu ios-fix"
           src={hyperSplash}
+          alt="Hyper splash graphic"
         />
 
         {/* Video bottom left */}
-        <motion.video
+        <LazyVideo
           id="can_anim"
-          style={{
-            y: video2Y,
-            opacity: video2Opacity,
-            rotateZ: '12deg',
-          }}
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute rounded-xl md:w-[25vw] lg:w-[19vw] xl:w-[18vw] 2xl:w-[18vw] max-w-[40vw] -left-[9vw] md:-left-[2vw] lg:-left-[0vw] xl:-left-[2rem] 2xl:left-[2rem] bottom-[8vh] md:bottom-[12vh] lg:bottom-[0rem] xl:bottom-[3rem] gpu ios-fix"
           src={canAnim}
+          motionProps={{
+            style: {
+              y: video2Y,
+              opacity: video2Opacity,
+              rotateZ: '12deg',
+            },
+          }}
+          className="absolute rounded-xl md:w-[25vw] lg:w-[19vw] xl:w-[18vw] 2xl:w-[18vw] max-w-[40vw] -left-[9vw] md:-left-[2vw] lg:-left-[0vw] xl:-left-[2rem] 2xl:left-[2rem] bottom-[8vh] md:bottom-[12vh] lg:bottom-[0rem] xl:bottom-[3rem] gpu ios-fix"
         />
 
         {/* Video bottom right */}
-        <motion.video
+        <LazyVideo
           id="anim_link"
-          style={{
-            y: video3Y,
-            opacity: video3Opacity,
-            rotateZ: '-8deg',
-          }}
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute rounded-xl md:w-[25vw] lg:w-[20vw] xl:w-[19vw] 2xl:w-[17vw] max-w-[42vw] -right-[5vw] md:-right-[3vw] lg:-right-[2vw] xl:-right-[1rem] 2xl:right-[4rem] bottom-[10vh] md:bottom-[10vh] lg:bottom-[2rem] xl:bottom-[2rem] 2xl:bottom-[5rem] gpu ios-fix"
           src={linkAnim}
+          motionProps={{
+            style: {
+              y: video3Y,
+              opacity: video3Opacity,
+              rotateZ: '-8deg',
+            },
+          }}
+          className="absolute rounded-xl md:w-[25vw] lg:w-[20vw] xl:w-[19vw] 2xl:w-[17vw] max-w-[42vw] -right-[5vw] md:-right-[3vw] lg:-right-[2vw] xl:-right-[1rem] 2xl:right-[4rem] bottom-[10vh] md:bottom-[10vh] lg:bottom-[2rem] xl:bottom-[2rem] 2xl:bottom-[5rem] gpu ios-fix"
         />
       </SpotlightCard>
     </motion.section>
