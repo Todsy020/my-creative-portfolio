@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Send, User, MessageSquare, Sparkles } from 'lucide-react';
-import emailjs from 'emailjs-com';
+import emailjs from '@emailjs/browser';
 import toast from 'react-hot-toast';
 
 const ContactForm = () => {
@@ -26,15 +26,18 @@ const ContactForm = () => {
     emailjs
       .send(serviceID, templateID, formData, userID)
       .then(() => {
-        toast.success('Message sent successfully! Thank you very much.', {
-          duration: 4000,
-          position: 'bottom-center',
-          style: {
-            background: '#10b981',
-            color: '#fff',
-            fontWeight: '600',
-          },
-        });
+        toast.success(
+          'Message sent successfully! Thank you very much.',
+          {
+            duration: 4000,
+            position: 'bottom-center',
+            style: {
+              background: '#10b981',
+              color: '#fff',
+              fontWeight: '600',
+            },
+          }
+        );
         setFormData({ name: '', message: '' });
       })
       .catch(() => {
