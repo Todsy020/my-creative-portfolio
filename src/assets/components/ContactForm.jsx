@@ -21,10 +21,9 @@ const ContactForm = () => {
 
     const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
     const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-    const userID = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
     emailjs
-      .send(serviceID, templateID, formData, userID)
+      .send(serviceID, templateID, formData)
       .then(() => {
         toast.success(
           'Message sent successfully! Thank you very much.',
