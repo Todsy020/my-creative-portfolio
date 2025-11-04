@@ -1,0 +1,12 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# EmailJS keys are public and safe to expose in client-side code
+[build.environment]
+  SECRETS_SCAN_OMIT_KEYS = "VITE_EMAILJS_PUBLIC_KEY,VITE_EMAILJS_SERVICE_ID,VITE_EMAILJS_TEMPLATE_ID"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
