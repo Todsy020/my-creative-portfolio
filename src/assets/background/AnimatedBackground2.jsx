@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 const AnimatedBackground2 = () => {
   return (
-    <div className="absolute inset-0 -z-10 bg-gradient-to-br from-gray-900 via-gray-950 to-black">
+    <div className="absolute inset-0 -z-10 overflow-hidden bg-gradient-to-br from-gray-900 via-gray-950 to-black">
       {/* Forme 1 */}
       <motion.div
         className="absolute top-10 left-10 w-40 h-40 bg-gradient-to-r from-indigo-700 to-purple-700 rounded-full opacity-50 blur-xl"

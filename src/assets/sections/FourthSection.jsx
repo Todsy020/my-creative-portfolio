@@ -56,7 +56,7 @@ const FourthSection = () => {
     <motion.section
       ref={fourthSectionRef}
       style={{ rotateZ: rotateFourthSection }}
-      className="w-full min-h-screen-ios pb-20 lg:h-105vh-ios xl:h-110vh-ios flex flex-col items-center justify-center z-30 sticky top-0 mt-[9rem] md:mt-[15rem] lg:mt-[2rem] 2xl:mt-[20vh] overflow-visible px-4 lg:px-8"
+      className="w-full min-h-screen-ios h-145vh-ios md:h-200vh-ios lg:h-105vh-ios xl:h-110vh-ios flex flex-col items-center justify-center z-30 sticky top-0 mt-[9rem] md:mt-[15rem] lg:mt-[2rem] 2xl:mt-[20vh] overflow-hidden px-4 lg:px-8"
     >
       <AnimatedBackground2 />
 
@@ -78,7 +78,7 @@ const FourthSection = () => {
         </p>
       </motion.div>
 
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-10 w-[85vw] md:w-[65vw] lg:w-[55vw] xl:w-[900px] max-w-[900px] pointer-events-none">
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-20 w-[85vw] md:w-[65vw] lg:w-[55vw] xl:w-[900px] max-w-[900px]">
         <LazyVideo
           src={phoneAnim}
           className="w-full h-auto object-cover"
@@ -88,12 +88,12 @@ const FourthSection = () => {
 
       <div className="flex flex-col lg:flex-row z-50 relative bottom-8 md:bottom-4 lg:bottom-5 w-full max-w-[95vw] md:max-w-6xl px-2 lg:justify-center items-center lg:items-start xl:gap-100 md:gap-5">
         <div
-          className="w-full scale-75 md:scale-85 lg:scale-80 xl:scale-85 2xl:scale-100 md:flex md:justify-center origin-center"
+          className="w-full scale-75 md:scale-85 lg:scale-80 xl:scale-85 2xl:scale-100 md:flex md:justify-center"
           id="cta-target"
         >
           <GetInTouch />
         </div>
-        <div className="w-full scale-75 md:scale-85 lg:scale-80 xl:scale-85 2xl:scale-100 -mt-18 md:-mt-16 lg:mt-0 lg:ml-40 origin-center">
+        <div className="w-full scale-75 md:scale-85 lg:scale-80 xl:scale-85 2xl:scale-100 -mt-18 md:-mt-16 lg:mt-0 lg:ml-40">
           <ContactForm />
         </div>
       </div>
