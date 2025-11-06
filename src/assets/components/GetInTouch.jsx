@@ -5,9 +5,8 @@ const GetInTouch = () => {
   return (
     <motion.aside
       className="z-50"
-      initial={{ opacity: 0, y: 50 }}
+      initial={{ opacity: 1, y: 0 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, delay: 0.2 }}
     >
       <div className="w-full max-w-[90vw] sm:max-w-[400px] lg:w-[400px] bg-gray-900/80 backdrop-blur-optimized rounded-3xl p-6 md:p-8 shadow-2xl border border-gray-700 hover:shadow-3xl transition-all duration-500 relative overflow-hidden group">
         {/* Shimmer Effect */}

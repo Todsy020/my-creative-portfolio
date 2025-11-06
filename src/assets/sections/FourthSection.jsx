@@ -56,7 +56,7 @@ const FourthSection = () => {
     <motion.section
       ref={fourthSectionRef}
       style={{ rotateZ: rotateFourthSection }}
-      className="w-full min-h-screen-ios h-145vh-ios md:h-200vh-ios lg:h-105vh-ios xl:h-110vh-ios flex flex-col items-center justify-center z-30 sticky top-0 mt-[9rem] md:mt-[15rem] lg:mt-[2rem] 2xl:mt-[20vh] overflow-visible px-4 lg:px-8"
+      className="w-full min-h-screen-ios pb-20 lg:h-105vh-ios xl:h-110vh-ios flex flex-col items-center justify-center z-30 sticky top-0 mt-[9rem] md:mt-[15rem] lg:mt-[2rem] 2xl:mt-[20vh] overflow-visible px-4 lg:px-8"
     >
       <AnimatedBackground2 />
 
