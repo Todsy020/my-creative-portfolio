@@ -56,7 +56,7 @@ const FourthSection = () => {
     <motion.section
       ref={fourthSectionRef}
       style={{ rotateZ: rotateFourthSection }}
-      className="w-full min-h-screen h-[145vh] md:h-[200vh] lg:h-[105vh] xl:h-[110vh] flex flex-col items-center justify-center z-30 sticky top-0 mt-[9rem] md:mt-[15rem] lg:mt-[2rem] 2xl:mt-[20vh] overflow-hidden px-4 lg:px-8"
+      className="w-full min-h-screen-ios h-145vh-ios md:h-200vh-ios lg:h-105vh-ios xl:h-110vh-ios flex flex-col items-center justify-center z-30 sticky top-0 mt-[9rem] md:mt-[15rem] lg:mt-[2rem] 2xl:mt-[20vh] overflow-hidden px-4 lg:px-8"
     >
       <AnimatedBackground2 />
 
@@ -81,6 +81,7 @@ const FourthSection = () => {
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-20 w-[85vw] md:w-[65vw] lg:w-[55vw] xl:w-[900px] max-w-[900px]">
         <LazyVideo
           src={phoneAnim}
+          srcMp4="/medias/phone_anim.mp4"
           className="w-full h-auto object-cover"
           aria-hidden="true"
         />

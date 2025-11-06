@@ -116,7 +116,7 @@ const SecondSection = () => {
     <motion.section
       ref={secondSectionRef}
       style={{ rotateZ: rotateSecondSection, scale: scaleSection }}
-      className="w-screen min-h-screen h-[110vh] flex flex-col items-center justify-center bg-gray-900 z-30 sticky top-0 mt-[11rem] md:mt-[18rem] lg:mt-[22rem] overflow-hidden px-4 lg:px-8 gpu ios-fix"
+      className="w-screen min-h-screen-ios h-110vh-ios flex flex-col items-center justify-center bg-gray-900 z-30 sticky top-0 mt-[11rem] md:mt-[18rem] lg:mt-[22rem] overflow-hidden px-4 lg:px-8 gpu ios-fix"
     >
       <SpotlightCard className="w-full h-full bg-transparent border-none p-0">
         <GeometricBackground />
@@ -178,6 +178,7 @@ const SecondSection = () => {
         <LazyVideo
           id="hp_whip_pan"
           src={hpWhipCan}
+          srcMp4="/medias/hp_whip_pan.mp4"
           motionProps={{
             style: {
               y: video1Y,
@@ -205,6 +206,7 @@ const SecondSection = () => {
         <LazyVideo
           id="can_anim"
           src={canAnim}
+          srcMp4="/medias/can_anim.mp4"
           motionProps={{
             style: {
               y: video2Y,
@@ -219,6 +221,7 @@ const SecondSection = () => {
         <LazyVideo
           id="anim_link"
           src={linkAnim}
+          srcMp4="/medias/anim_link.mp4"
           motionProps={{
             style: {
               y: video3Y,

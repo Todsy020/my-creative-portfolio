@@ -154,3 +154,56 @@ body {
     transition: transform 0.2s ease-out;
   }
 }
+
+/* 5. iOS Safari viewport height fix - use dvh with vh fallback */
+.h-screen-ios {
+  height: 100vh; /* Fallback for older browsers */
+  height: 100dvh; /* Dynamic viewport height for iOS */
+}
+
+.min-h-screen-ios {
+  min-height: 100vh; /* Fallback */
+  min-height: 100dvh; /* Dynamic viewport height */
+}
+
+.h-110vh-ios {
+  height: 110vh; /* Fallback */
+  height: 110dvh; /* Dynamic viewport height */
+}
+
+.h-145vh-ios {
+  height: 145vh; /* Fallback */
+  height: 145dvh; /* Dynamic viewport height */
+}
+
+.h-200vh-ios {
+  height: 200vh; /* Fallback */
+  height: 200dvh; /* Dynamic viewport height */
+}
+
+.h-105vh-ios {
+  height: 105vh; /* Fallback */
+  height: 105dvh; /* Dynamic viewport height */
+}
+
+.h-110vh-ios {
+  height: 110vh; /* Fallback */
+  height: 110dvh; /* Dynamic viewport height */
+}
+
+/* 6. Optimized backdrop-blur for iOS performance */
+.backdrop-blur-optimized {
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  /* Optimize rendering on iOS */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+/* Reduce backdrop-blur on iOS for better performance */
+@supports (-webkit-touch-callout: none) {
+  .backdrop-blur-optimized {
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+  }
+}

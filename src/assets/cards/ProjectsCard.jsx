@@ -7,7 +7,7 @@ const ProjectsCard = ({ setOpen2 }) => {
   return (
     <motion.div
       layoutId="card2"
-      className="fixed top-0 left-0 w-full h-screen z-50 bg-slate-900 overflow-y-auto"
+      className="fixed top-0 left-0 w-full h-screen-ios z-50 bg-slate-900 overflow-y-auto"
     >
       <NeuralBackground />
       {/* Bouton de fermeture responsive */}
@@ -21,7 +21,7 @@ const ProjectsCard = ({ setOpen2 }) => {
         <X className="text-red-600 group-hover:text-red-400 w-10 h-10 md:w-10 md:h-10 lg:w-12 lg:h-12" />
       </motion.button>
 
-      <div className="p-3 md:p-6 lg:p-7 rounded-md flex flex-col min-h-screen">
+      <div className="p-3 md:p-6 lg:p-7 rounded-md flex flex-col min-h-screen-ios">
         <motion.h3
           initial={{ opacity: 0, y: -40 }}
           animate={{ opacity: 1, y: 0 }}

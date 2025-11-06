@@ -5,7 +5,8 @@ import { motion } from 'framer-motion';
  * LazyVideo - Optimized video component with IntersectionObserver
  * Only loads video when visible in viewport
  *
- * @param {string} src - Video source URL
+ * @param {string} src - Video source URL (webm)
+ * @param {string} srcMp4 - MP4 fallback for Safari iOS (optional)
  * @param {string} poster - Optional poster image URL
  * @param {string} className - CSS classes
  * @param {object} style - Inline styles (for Framer Motion)
@@ -14,6 +15,7 @@ import { motion } from 'framer-motion';
  */
 const LazyVideo = ({
   src,
+  srcMp4,
   poster,
   className = '',
   style = {},
@@ -80,6 +82,8 @@ const LazyVideo = ({
       {...motionProps}
       {...videoProps}
     >
+      {/* MP4 first for better iOS Safari compatibility */}
+      {isLoaded && srcMp4 && <source src={srcMp4} type="video/mp4" />}
       {isLoaded && <source src={src} type="video/webm" />}
       {/* Fallback message */}
       {hasError && (

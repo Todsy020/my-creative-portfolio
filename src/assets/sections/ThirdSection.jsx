@@ -100,7 +100,7 @@ const ThirdSection = () => {
         rotateZ: rotateThirdSection,
         scale: scaleSection,
       }}
-      className="w-full h-[100vh] lg:h-[110vh] flex items-center justify-center bg-slate-900 z-30 sticky top-0 mt-20 md:mt-32 lg:mt-36 overflow-hidden"
+      className="w-full h-screen-ios lg:h-110vh-ios flex items-center justify-center bg-slate-900 z-30 sticky top-0 mt-20 md:mt-32 lg:mt-36 overflow-hidden"
       aria-label="About Me and My Work section with interactive cards"
     >
       <AnimatedBackground />
@@ -118,6 +118,7 @@ const ThirdSection = () => {
           >
             <LazyVideo
               src={idCardAnim}
+              srcMp4="/medias/id_card_anim.mp4"
               className="absolute bottom-[2.5rem] right-[7.5rem] w-full h-full object-cover blur-xs group-hover:blur-none"
               aria-label="Animated character introducing About Me section"
             />
@@ -169,6 +170,7 @@ const ThirdSection = () => {
           >
             <LazyVideo
               src={textScreen}
+              srcMp4="/medias/Text_screen.mp4"
               className="absolute top-0 left-[1.5rem] w-full h-full object-cover blur-xs group-hover:blur-none"
               aria-label="Animated display of portfolio work"
             />

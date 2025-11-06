@@ -22,7 +22,7 @@ const PortfolioCard = ({ setOpen }) => {
         initial={{ opacity: 0, y: -40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.5 }}
-        className="text-slate-300 h-screen overflow-hidden"
+        className="text-slate-300 h-screen-ios overflow-hidden"
       >
         <div className="px-4 lg:px-6">
           <main className="lg:pt-1">

@@ -61,7 +61,7 @@ const FirstSection = () => {
     <motion.section
       ref={firstSectionRef}
       style={{ scale: scaleSection }}
-      className="relative w-screen h-screen z-10 flex flex-col items-center justify-center bg-zinc-100 sticky top-0 px-4 sm:px-6 lg:px-8"
+      className="relative w-screen h-screen-ios z-10 flex flex-col items-center justify-center bg-zinc-100 sticky top-0 px-4 sm:px-6 lg:px-8"
       role="region"
       aria-label="Hero section"
     >
@@ -125,6 +125,7 @@ const FirstSection = () => {
       >
         <LazyVideo
           src={helloAnim}
+          srcMp4="/medias/avatar_anim_HELLO.mp4"
           priority={true}
           className="w-full h-auto object-contain pointer-events-none select-none"
           aria-hidden="true"
