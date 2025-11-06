@@ -55,7 +55,7 @@ const ContactForm = () => {
 
   return (
     <motion.div
-      className="max-w-[90vw] lg:w-[400px] mx-auto bg-gray-900/80 backdrop-blur-lg p-6 md:p-8 rounded-3xl shadow-2xl border border-gray-700 hover:shadow-3xl transition-all duration-500 relative overflow-hidden group"
+      className="max-w-[90vw] lg:w-[400px] mx-auto bg-gray-900/80 backdrop-blur-optimized p-6 md:p-8 rounded-3xl shadow-2xl border border-gray-700 hover:shadow-3xl transition-all duration-500 relative overflow-hidden group"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay: 0.4 }}
