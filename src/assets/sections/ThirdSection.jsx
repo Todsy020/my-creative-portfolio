@@ -118,7 +118,6 @@ const ThirdSection = () => {
           >
             <LazyVideo
               src={idCardAnim}
-              srcMp4="/medias/id_card_anim.mp4"
               className="absolute bottom-[2.5rem] right-[7.5rem] w-full h-full object-cover blur-xs group-hover:blur-none"
               aria-label="Animated character introducing About Me section"
             />
@@ -170,7 +169,6 @@ const ThirdSection = () => {
           >
             <LazyVideo
               src={textScreen}
-              srcMp4="/medias/Text_screen.mp4"
               className="absolute top-0 left-[1.5rem] w-full h-full object-cover blur-xs group-hover:blur-none"
               aria-label="Animated display of portfolio work"
             />

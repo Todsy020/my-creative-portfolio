@@ -81,7 +81,6 @@ const FourthSection = () => {
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-20 w-[85vw] md:w-[65vw] lg:w-[55vw] xl:w-[900px] max-w-[900px]">
         <LazyVideo
           src={phoneAnim}
-          srcMp4="/medias/phone_anim.mp4"
           className="w-full h-auto object-cover"
           aria-hidden="true"
         />

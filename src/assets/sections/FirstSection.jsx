@@ -125,7 +125,6 @@ const FirstSection = () => {
       >
         <LazyVideo
           src={helloAnim}
-          srcMp4="/medias/avatar_anim_HELLO.mp4"
           priority={true}
           className="w-full h-auto object-contain pointer-events-none select-none"
           aria-hidden="true"

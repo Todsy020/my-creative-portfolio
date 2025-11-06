@@ -178,7 +178,6 @@ const SecondSection = () => {
         <LazyVideo
           id="hp_whip_pan"
           src={hpWhipCan}
-          srcMp4="/medias/hp_whip_pan.mp4"
           motionProps={{
             style: {
               y: video1Y,
@@ -206,7 +205,6 @@ const SecondSection = () => {
         <LazyVideo
           id="can_anim"
           src={canAnim}
-          srcMp4="/medias/can_anim.mp4"
           motionProps={{
             style: {
               y: video2Y,
@@ -221,7 +219,6 @@ const SecondSection = () => {
         <LazyVideo
           id="anim_link"
           src={linkAnim}
-          srcMp4="/medias/anim_link.mp4"
           motionProps={{
             style: {
               y: video3Y,
