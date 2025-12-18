@@ -1,12 +1,63 @@
-# React + Vite
+# Creative Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio website showcasing my work as a creative developer.
 
-Currently, two official plugins are available:
+## About
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+First iteration of my portfolio built to present projects, skills, and professional experience. The design focuses on clean aesthetics and smooth interactions to create an engaging user experience.
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Built with modern frontend technologies for optimal performance and developer experience.
+
+React powers the UI with component-based architecture. Vite handles the build tooling for fast development and optimized production builds. The site is deployed on Vercel with automatic deployments from the main branch.
+
+## Features
+
+Performance optimizations implemented throughout the project. Custom fonts loaded efficiently. Responsive design adapting to all screen sizes. Smooth animations and transitions for enhanced user experience.
+
+## Installation
+
+Clone the repository and install dependencies.
+
+```bash
+git clone https://github.com/Todsy020/my-creative-portfolio.git
+cd my-creative-portfolio
+npm install
+```
+
+## Development
+
+Start the local development server.
+
+```bash
+npm run dev
+```
+
+The site will be available at `http://localhost:5173`.
+
+## Build
+
+Generate an optimized production build.
+
+```bash
+npm run build
+```
+
+Preview the production build locally:
+
+```bash
+npm run preview
+```
+
+## Environment Variables
+
+Create a `.env` file based on `.env.example` for any required environment variables.
+
+## Deployment
+
+Configured for continuous deployment on Vercel. Every push to the main branch triggers a new production deployment.
+
+## Performance Notes
+
+Check `OPTIMIZATION_CHANGELOG.md` for detailed information on performance improvements and optimizations implemented throughout development.
