@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import Projects from '../components/Projects';
-import { X } from 'lucide-react';
+import { X, ArrowLeft } from 'lucide-react';
 import NeuralBackground from '../background/NeuralBackground';
 
 const ProjectsCard = ({ setOpen2 }) => {
@@ -38,6 +38,24 @@ const ProjectsCard = ({ setOpen2 }) => {
         <div className="flex-1 flex flex-col justify-between">
           <Projects />
         </div>
+
+        {/* Bouton Return en bas - Mobile */}
+        <motion.button
+          onClick={() => setOpen2(false)}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 0.5 }}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="md:hidden mx-auto mt-8 mb-6 flex items-center gap-3 px-6 py-4 font-semibold text-white rounded-xl
+                     bg-gradient-to-r from-blue-500 via-blue-600 to-purple-600
+                     shadow-lg hover:shadow-xl
+                     transition-all duration-300
+                     cursor-pointer font-tanker text-c-lg"
+        >
+          <ArrowLeft className="w-5 h-5" />
+          Return to Portfolio
+        </motion.button>
       </div>
     </motion.div>
   );
