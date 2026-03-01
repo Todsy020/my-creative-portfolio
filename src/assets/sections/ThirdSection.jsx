@@ -58,32 +58,32 @@ const ThirdSection = () => {
   const rotateThirdSection = useTransform(
     rotateScrollYProgress,
     [0, 1],
-    isDesktop ? [-8, 8.8] : [0, 0]
+    isDesktop ? [-8, 8.8] : [0, 0],
   );
 
-  // Utiliser le scroll global pour l'effet de scale (désactivé sur mobile pour éviter le clipping)
+  // Utiliser le scroll global pour l'effet de scale
   const { scrollYProgress: globalScrollYProgress } = useScroll();
   const scaleSection = useTransform(
     globalScrollYProgress,
-    [0.66, 1.66],
-    isDesktop ? [1, 0.7] : [1, 1]
+    [0.66, 1.66], // Ajustez ces valeurs selon la position de votre section
+    [1, 0.7],
   );
 
   // Texte animation responsive
   const textYProgress = useTransform(
     textScrollYProgress,
     [0, 1],
-    [isDesktop ? 290 : 150, isDesktop ? -110 : -40]
+    [isDesktop ? 290 : 150, isDesktop ? -110 : -40],
   );
   const textOpacityProgress = useTransform(
     textScrollYProgress,
     [0, 1],
-    [0, 1]
+    [0, 1],
   );
   const textScaleProgress = useTransform(
     textScrollYProgress,
     [0, 1],
-    [0.6, 1]
+    [0.6, 1],
   );
   const textSmoothY = useSpring(textYProgress, {
     stiffness: 80,
@@ -98,13 +98,8 @@ const ThirdSection = () => {
       style={{
         rotateZ: rotateThirdSection,
         scale: scaleSection,
-        ...(isDesktop && {
-          isolation: 'isolate',
-          backfaceVisibility: 'hidden',
-          WebkitBackfaceVisibility: 'hidden',
-        }),
       }}
-      className={`w-full h-screen-ios lg:h-110vh-ios flex items-center justify-center bg-slate-900 z-40 sticky top-0 mt-20 md:mt-32 lg:mt-36 overflow-hidden ${isDesktop ? 'will-change-transform perspective-1000' : ''}`}
+      className="w-full h-screen-ios lg:h-110vh-ios flex items-center justify-center bg-slate-900 z-30 sticky top-0 mt-20 md:mt-32 lg:mt-36 overflow-hidden"
       aria-label="About Me and My Work section with interactive cards"
     >
       <AnimatedBackground />
@@ -324,7 +319,7 @@ const ThirdSection = () => {
                         {label}
                       </span>
                     </motion.div>
-                  )
+                  ),
                 )}
               </div>
 
