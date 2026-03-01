@@ -56,7 +56,7 @@ const FourthSection = () => {
     <motion.section
       ref={fourthSectionRef}
       style={{ rotateZ: rotateFourthSection }}
-      className="w-full min-h-screen-ios h-120vh-ios md:h-200vh-ios lg:h-105vh-ios xl:h-110vh-ios flex flex-col items-center justify-center z-30 sticky top-0 mt-[9rem] md:mt-[15rem] lg:mt-[2rem] 2xl:mt-[20vh] overflow-hidden px-4 lg:px-8"
+      className="w-full min-h-[200vh] md:h-200vh-ios lg:h-105vh-ios xl:h-110vh-ios flex flex-col items-center justify-start md:justify-center pt-16 md:pt-0 z-30 sticky top-0 mt-[9rem] md:mt-[15rem] lg:mt-[2rem] 2xl:mt-[20vh] overflow-hidden px-4 lg:px-8"
     >
       <AnimatedBackground2 />
 
@@ -66,7 +66,7 @@ const FourthSection = () => {
           opacity: textOpacityProgress,
           scale: textScaleProgress,
         }}
-        className="relative mb-4 md:mb-8 max-w-[95vw] md:max-w-4xl mx-auto z-10 lg:top-15 2xl:-top-2"
+        className="relative mb-8 md:mb-8 max-w-[95vw] md:max-w-4xl mx-auto z-10 lg:top-15 2xl:-top-2"
       >
         <motion.h2 className="text-c-4xl md:text-c-6xl lg:text-c-5xl xl:text-c-7xl font-bold text-center mb-3 md:mb-6 lg:mb-3 xl:mb-2 xl:mt-10 bg-gradient-to-r from-purple-500 via-indigo-400 to-cyan-400 bg-clip-text text-transparent leading-tight font-tanker animate-gradient">
           Let's talk !
@@ -86,14 +86,14 @@ const FourthSection = () => {
         />
       </div>
 
-      <div className="flex flex-col lg:flex-row z-50 relative bottom-8 md:bottom-4 lg:bottom-5 w-full max-w-[95vw] md:max-w-6xl px-2 lg:justify-center items-center lg:items-start xl:gap-100 md:gap-5">
+      <div className="flex flex-col lg:flex-row z-50 md:relative md:bottom-4 lg:bottom-5 w-full max-w-[95vw] md:max-w-6xl px-2 lg:justify-center items-center lg:items-start xl:gap-100 md:gap-5">
         <div
           className="w-full max-w-md lg:max-w-lg lg:scale-80 xl:scale-85 2xl:scale-100 md:flex md:justify-center"
           id="cta-target"
         >
           <GetInTouch />
         </div>
-        <div className="w-full max-w-md lg:max-w-lg lg:scale-80 xl:scale-85 2xl:scale-100 -mt-12 md:-mt-16 lg:mt-0 lg:ml-40">
+        <div className="w-full max-w-md lg:max-w-lg lg:scale-80 xl:scale-85 2xl:scale-100 mt-6 md:-mt-16 lg:mt-0 lg:ml-40">
           <ContactForm />
         </div>
       </div>
