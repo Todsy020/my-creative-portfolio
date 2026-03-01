@@ -1,17 +1,20 @@
 import { useMemo } from 'react';
 import { motion } from 'motion/react';
+import { useIsDesktop } from '../../hooks/useMediaQuery';
 
 const AnimatedBackground2 = () => {
+  const isDesktop = useIsDesktop();
+
   const particles = useMemo(
     () =>
-      Array.from({ length: 20 }, (_, i) => ({
+      Array.from({ length: isDesktop ? 20 : 8 }, (_, i) => ({
         id: i,
         width: Math.random() * 8 + 3,
         x: Math.random() * 100,
         y: Math.random() * 100,
         duration: Math.random() * 5 + 4,
       })),
-    []
+    [isDesktop]
   );
 
   return (

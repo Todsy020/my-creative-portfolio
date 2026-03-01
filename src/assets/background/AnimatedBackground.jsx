@@ -1,9 +1,12 @@
 import { useMemo } from 'react';
 import { motion } from 'motion/react';
+import { useIsDesktop } from '../../hooks/useMediaQuery';
 
 const AnimatedBackground = () => {
+  const isDesktop = useIsDesktop();
+
   const { lightFlashes, particles } = useMemo(() => {
-    const _lightFlashes = Array.from({ length: 8 }, (_, i) => ({
+    const _lightFlashes = Array.from({ length: isDesktop ? 8 : 3 }, (_, i) => ({
       id: i,
       x: Math.random() * 100,
       y: Math.random() * 100,
@@ -13,7 +16,7 @@ const AnimatedBackground = () => {
       moveY: Math.random() * 100 - 50,
     }));
 
-    const _particles = Array.from({ length: 20 }, (_, i) => ({
+    const _particles = Array.from({ length: isDesktop ? 20 : 8 }, (_, i) => ({
       id: i,
       x: Math.random() * 100,
       y: Math.random() * 100,
@@ -22,7 +25,7 @@ const AnimatedBackground = () => {
     }));
 
     return { lightFlashes: _lightFlashes, particles: _particles };
-  }, []);
+  }, [isDesktop]);
 
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
