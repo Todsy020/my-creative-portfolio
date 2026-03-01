@@ -5,7 +5,7 @@ import {
   useSpring,
   AnimatePresence,
   useInView,
-} from 'framer-motion';
+} from 'motion/react';
 import { useRef, useState, useEffect } from 'react';
 import { useIsDesktop } from '../../hooks/useMediaQuery';
 import { TIMING, SPRING_CONFIGS } from '../../constants/animations';
@@ -92,7 +92,6 @@ const ThirdSection = () => {
 
   const [open, setOpen] = useState(false);
   const [open2, setOpen2] = useState(false);
-
   return (
     <motion.section
       ref={thirdSectionRef}
@@ -207,7 +206,7 @@ const ThirdSection = () => {
           </motion.div>
 
           {/* Central content - Desktop */}
-          <div className="relative z-20 flex flex-col items-center justify-center text-center px-4 mt-[15vh] scale-60 xl:scale-80 2xl:scale-100">
+          <div className="relative z-20 flex flex-col items-center justify-center text-center px-4 mt-[15vh] lg:mt-[10vh]">
             <motion.div
               style={{
                 y: textSmoothY,
@@ -434,7 +433,7 @@ const ThirdSection = () => {
               scale: textScaleProgress,
               WebkitTextStroke: '0.5px black',
             }}
-            className="h-1/3 flex flex-col justify-center items-center text-center px-4 overflow-hidden md:h-2/4 scale-92 md:scale-100"
+            className="h-1/3 flex flex-col justify-center items-center text-center px-4 overflow-hidden md:h-2/4"
           >
             {/* Main Title */}
             <h3 className="text-c-2xl md:text-c-3xl font-tanker text-white leading-tight mobile-text-fix">

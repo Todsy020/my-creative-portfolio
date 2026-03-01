@@ -3,7 +3,7 @@ import {
   useTransform,
   motion,
   useSpring,
-} from 'framer-motion';
+} from 'motion/react';
 import { useRef } from 'react';
 import { useIsDesktop } from '../../hooks/useMediaQuery';
 import { SPRING_CONFIGS } from '../../constants/animations';
@@ -88,12 +88,12 @@ const FourthSection = () => {
 
       <div className="flex flex-col lg:flex-row z-50 relative bottom-8 md:bottom-4 lg:bottom-5 w-full max-w-[95vw] md:max-w-6xl px-2 lg:justify-center items-center lg:items-start xl:gap-100 md:gap-5">
         <div
-          className="w-full scale-75 md:scale-85 lg:scale-80 xl:scale-85 2xl:scale-100 md:flex md:justify-center"
+          className="w-full max-w-md lg:max-w-lg lg:scale-80 xl:scale-85 2xl:scale-100 md:flex md:justify-center"
           id="cta-target"
         >
           <GetInTouch />
         </div>
-        <div className="w-full scale-75 md:scale-85 lg:scale-80 xl:scale-85 2xl:scale-100 -mt-18 md:-mt-16 lg:mt-0 lg:ml-40">
+        <div className="w-full max-w-md lg:max-w-lg lg:scale-80 xl:scale-85 2xl:scale-100 -mt-12 md:-mt-16 lg:mt-0 lg:ml-40">
           <ContactForm />
         </div>
       </div>

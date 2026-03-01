@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 
 /**
  * LazyVideo - Optimized video component with IntersectionObserver
@@ -41,9 +41,9 @@ const LazyVideo = ({
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting && !isLoaded) {
+          if (entry.isIntersecting) {
             setIsLoaded(true);
-            observer.unobserve(videoElement);
+            observer.disconnect();
           }
         });
       },
@@ -56,11 +56,9 @@ const LazyVideo = ({
     observer.observe(videoElement);
 
     return () => {
-      if (videoElement) {
-        observer.unobserve(videoElement);
-      }
+      observer.disconnect();
     };
-  }, [priority, isLoaded]);
+  }, [priority]);
 
   const handleError = () => {
     setHasError(true);

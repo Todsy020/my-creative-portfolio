@@ -3,7 +3,7 @@ import {
   useTransform,
   motion,
   useSpring,
-} from 'framer-motion';
+} from 'motion/react';
 import { useEffect, useState, useRef, useMemo } from 'react';
 import { FileDown } from 'lucide-react';
 import { VARIANTS, SPRING_CONFIGS, TIMING } from '../../constants/animations';

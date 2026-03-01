@@ -1,11 +1,9 @@
 @import "tailwindcss";
 
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @theme {
+  --font-tanker: 'tanker', sans-serif;
+  --font-inter: 'Inter', sans-serif;
+
   --text-c-xs: clamp(0.75rem, 0.7vw + 0.5rem, 0.875rem);
   --text-c-sm: clamp(0.875rem, 0.8vw + 0.5rem, 1rem);
   --text-c-base: clamp(1rem, 1vw + 0.5rem, 1.125rem);
@@ -38,13 +36,6 @@
   font-display: swap;
 }
 
-@layer base {
-  :root {
-    --font-tanker: 'tanker', sans-serif;
-    --font-inter: 'Inter', sans-serif;
-  }
-}
-
 body {
   @apply overflow-x-hidden;
   background-color: black;
@@ -63,7 +54,6 @@ body {
   clip-path: polygon(30% 0, 100% 0, 100% 100%, 50% 100%);
 }
 
-/* Responsive adjustments pour les clips */
 @media (max-width: 1024px) {
   .clip-left {
     clip-path: polygon(0 0, 75% 0, 60% 100%, 0% 100%);
@@ -82,15 +72,6 @@ body {
   .clip-right {
     clip-path: polygon(20% 0, 100% 0, 100% 100%, 30% 100%);
   }
-}
-
-/* Utility classes pour les fonts */
-.font-tanker {
-  font-family: var(--font-tanker);
-}
-
-.font-inter {
-  font-family: var(--font-inter);
 }
 
 @keyframes gradient {
@@ -112,11 +93,6 @@ body {
   animation: gradient 2.5s ease infinite;
 }
 
-html,
-body {
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-}
 .mobile-text-fix {
   -webkit-text-stroke: 0 transparent;
 }
@@ -133,7 +109,6 @@ body {
   transform: translateZ(0);
 }
 
-/* Only activate will-change when element is being interacted with */
 .gpu:hover,
 .gpu:active,
 .gpu.animating {
@@ -157,50 +132,43 @@ body {
 
 /* 5. iOS Safari viewport height fix - use dvh with vh fallback */
 .h-screen-ios {
-  height: 100vh; /* Fallback for older browsers */
-  height: 100dvh; /* Dynamic viewport height for iOS */
+  height: 100vh;
+  height: 100dvh;
 }
 
 .min-h-screen-ios {
-  min-height: 100vh; /* Fallback */
-  min-height: 100dvh; /* Dynamic viewport height */
-}
-
-.h-110vh-ios {
-  height: 110vh; /* Fallback */
-  height: 110dvh; /* Dynamic viewport height */
-}
-
-.h-145vh-ios {
-  height: 145vh; /* Fallback */
-  height: 145dvh; /* Dynamic viewport height */
-}
-
-.h-200vh-ios {
-  height: 200vh; /* Fallback */
-  height: 200dvh; /* Dynamic viewport height */
+  min-height: 100vh;
+  min-height: 100dvh;
 }
 
 .h-105vh-ios {
-  height: 105vh; /* Fallback */
-  height: 105dvh; /* Dynamic viewport height */
+  height: 105vh;
+  height: 105dvh;
 }
 
 .h-110vh-ios {
-  height: 110vh; /* Fallback */
-  height: 110dvh; /* Dynamic viewport height */
+  height: 110vh;
+  height: 110dvh;
+}
+
+.h-145vh-ios {
+  height: 145vh;
+  height: 145dvh;
+}
+
+.h-200vh-ios {
+  height: 200vh;
+  height: 200dvh;
 }
 
 /* 6. Optimized backdrop-blur for iOS performance */
 .backdrop-blur-optimized {
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
-  /* Optimize rendering on iOS */
   transform: translateZ(0);
   -webkit-transform: translateZ(0);
 }
 
-/* Reduce backdrop-blur on iOS for better performance */
 @supports (-webkit-touch-callout: none) {
   .backdrop-blur-optimized {
     -webkit-backdrop-filter: blur(8px);

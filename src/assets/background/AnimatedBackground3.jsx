@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion';
+import { useMemo } from 'react';
+import { motion } from 'motion/react';
 import {
   Code,
   Palette,
@@ -9,7 +10,6 @@ import {
 } from 'lucide-react';
 
 const AnimatedBackground3 = () => {
-  // Particules flottantes avec différentes icônes représentant tes skills
   const floatingElements = [
     { icon: Code, delay: 0, duration: 20, x: '10%', y: '20%' },
     { icon: Palette, delay: 2, duration: 25, x: '80%', y: '15%' },
@@ -19,7 +19,6 @@ const AnimatedBackground3 = () => {
     { icon: Globe, delay: 5, duration: 24, x: '40%', y: '80%' },
   ];
 
-  // Cercles géométriques animés
   const geometricShapes = [
     { size: 'w-32 h-32', x: '5%', y: '10%', delay: 0, duration: 15 },
     { size: 'w-24 h-24', x: '90%', y: '20%', delay: 2, duration: 18 },
@@ -28,7 +27,6 @@ const AnimatedBackground3 = () => {
     { size: 'w-36 h-36', x: '50%', y: '5%', delay: 4, duration: 22 },
   ];
 
-  // Lignes de connexion animées
   const connectionLines = [
     {
       from: { x: '20%', y: '30%' },
@@ -46,6 +44,18 @@ const AnimatedBackground3 = () => {
       delay: 4,
     },
   ];
+
+  const glowingPoints = useMemo(
+    () =>
+      Array.from({ length: 20 }, (_, i) => ({
+        id: i,
+        x: Math.random() * 100,
+        y: Math.random() * 100,
+        duration: 3 + Math.random() * 2,
+        delay: Math.random() * 5,
+      })),
+    []
+  );
 
   return (
     <div className="absolute inset-0 pointer-events-none z-[-1]">
@@ -160,21 +170,21 @@ const AnimatedBackground3 = () => {
       />
 
       {/* Points lumineux dispersés */}
-      {Array.from({ length: 20 }).map((_, index) => (
+      {glowingPoints.map((point) => (
         <motion.div
-          key={index}
+          key={point.id}
           className="absolute w-1 h-1 bg-teal-400 rounded-full"
           style={{
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
+            left: `${point.x}%`,
+            top: `${point.y}%`,
           }}
           animate={{
             opacity: [0, 1, 0],
             scale: [0, 1, 0],
           }}
           transition={{
-            duration: 3 + Math.random() * 2,
-            delay: Math.random() * 5,
+            duration: point.duration,
+            delay: point.delay,
             repeat: Infinity,
             ease: 'easeInOut',
           }}

@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { Twitter, Instagram, Linkedin, Mail } from 'lucide-react';
 
 const SocialLinksFourthSection = () => {

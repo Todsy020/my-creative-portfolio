@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { FileDown } from 'lucide-react';
 import AnimatedBackground3 from '../background/AnimatedBackground3';
 
@@ -54,7 +54,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: -40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.7 }}
-          className="bg-slate-800 p-3 rounded-lg shadow-2xl border-2 border-slate-700 flex flex-col w-full xl:w-1/3 h-full"
+          className="bg-slate-800 p-4 md:p-6 rounded-lg shadow-2xl border-2 border-slate-700 flex flex-col w-full xl:w-1/3 h-full"
         >
           <h3 className="flex justify-center items-center relative before:absolute before:left-0 before:w-1/3 before:h-px before:bg-slate-400 after:absolute after:right-0 after:w-1/3 after:h-px after:bg-slate-400 mb-4 text-c-2xl md:text-c-4xl lg:text-c-2xl 2xl:text-c-3xl font-tanker">
             About me
@@ -126,7 +126,7 @@ const HeroSection = () => {
             transition={{ delay: 1.3, duration: 0.5 }}
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
-            className="mt-4 mx-auto flex items-center gap-2 px-4 py-2 md:px-6 md:py-3
+            className="mt-4 mx-auto flex items-center gap-2 px-4 py-3 md:px-6 md:py-3
                        bg-gradient-to-r from-teal-600 to-teal-500
                        hover:from-teal-700 hover:to-teal-600
                        text-white font-semibold rounded-lg
@@ -148,7 +148,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: -40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.9 }}
-            className="bg-slate-800 p-4 rounded-lg shadow-2xl border-2 border-slate-700 flex flex-col text-center h-full"
+            className="bg-slate-800 p-4 md:p-6 rounded-lg shadow-2xl border-2 border-slate-700 flex flex-col text-center h-full"
           >
             <h3 className="flex justify-center items-center relative before:absolute before:left-0 before:w-1/4 before:h-px before:bg-slate-400 after:absolute after:right-0 after:w-1/4 after:h-px after:bg-slate-400 mb-2 text-c-2xl md:text-c-4xl lg:text-c-2xl 2xl:text-c-3xl font-tanker">
               Tools & Skills
@@ -194,12 +194,12 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: -40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.1 }}
-            className="bg-slate-800 p-5 rounded-lg shadow-2xl border-2 border-slate-700 flex flex-col justify-start h-full"
+            className="bg-slate-800 p-4 md:p-6 rounded-lg shadow-2xl border-2 border-slate-700 flex flex-col justify-start h-full"
           >
             <h3 className="flex justify-center items-center relative before:absolute before:left-0 before:w-1/3 before:h-px before:bg-slate-400 after:absolute after:right-0 after:w-1/3 after:h-px after:bg-slate-400 mb-1 text-c-2xl md:text-c-4xl lg:text-c-2xl 2xl:text-c-3xl font-tanker">
               OVB
             </h3>
-            <p className="text-c-sm md:text-c-base lg:text-c-sm 2xl:text-c-lg leading-relaxed font-inter text-center">
+            <p className="text-c-sm md:text-c-base lg:text-c-sm 2xl:text-c-lg leading-relaxed font-inter text-center mb-4">
               <span className="text-teal-400 font-semibold">OVB</span>{' '}
               is my web creation agency, but also a{' '}
               <span className="text-teal-400 font-semibold">
@@ -208,6 +208,42 @@ const HeroSection = () => {
               organization composed of me, my friends, and artists I
               meet during my journey.
             </p>
+
+            {/* OVB Nexus Link */}
+            <motion.a
+              href="https://www.ovbnexus.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.4, duration: 0.5 }}
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              className="mt-auto mx-auto flex items-center gap-2 px-4 py-3 md:px-6 md:py-3
+                         bg-gradient-to-r from-teal-600 to-teal-500
+                         hover:from-teal-700 hover:to-teal-600
+                         text-white font-semibold rounded-lg
+                         shadow-lg hover:shadow-xl
+                         transition-all duration-300
+                         group cursor-pointer w-fit"
+            >
+              <span className="font-inter text-sm md:text-base">
+                Visit OVB Nexus
+              </span>
+              <svg
+                className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M14 5l7 7m0 0l-7 7m7-7H3"
+                />
+              </svg>
+            </motion.a>
           </motion.div>
         </div>
       </div>

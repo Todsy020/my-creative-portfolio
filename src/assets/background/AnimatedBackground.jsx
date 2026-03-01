@@ -1,14 +1,28 @@
-import { motion } from 'framer-motion';
+import { useMemo } from 'react';
+import { motion } from 'motion/react';
 
 const AnimatedBackground = () => {
-  // Générer des positions aléatoires pour les flashs lumineux
-  const lightFlashes = Array.from({ length: 8 }, (_, i) => ({
-    id: i,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    delay: Math.random() * 4,
-    duration: 3 + Math.random() * 2,
-  }));
+  const { lightFlashes, particles } = useMemo(() => {
+    const _lightFlashes = Array.from({ length: 8 }, (_, i) => ({
+      id: i,
+      x: Math.random() * 100,
+      y: Math.random() * 100,
+      delay: Math.random() * 4,
+      duration: 3 + Math.random() * 2,
+      moveX: Math.random() * 100 - 50,
+      moveY: Math.random() * 100 - 50,
+    }));
+
+    const _particles = Array.from({ length: 20 }, (_, i) => ({
+      id: i,
+      x: Math.random() * 100,
+      y: Math.random() * 100,
+      duration: 4 + Math.random() * 4,
+      delay: Math.random() * 2,
+    }));
+
+    return { lightFlashes: _lightFlashes, particles: _particles };
+  }, []);
 
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -71,8 +85,8 @@ const AnimatedBackground = () => {
           animate={{
             opacity: [0, 1, 0.8, 1, 0],
             scale: [0.5, 1.2, 0.8, 1.5, 0.3],
-            x: [0, Math.random() * 100 - 50],
-            y: [0, Math.random() * 100 - 50],
+            x: [0, flash.moveX],
+            y: [0, flash.moveY],
           }}
           transition={{
             duration: flash.duration,
@@ -88,7 +102,7 @@ const AnimatedBackground = () => {
       <motion.div
         className="absolute top-0 left-0 w-px h-full bg-gradient-to-b from-transparent via-blue-400 to-transparent opacity-40"
         animate={{
-          x: [0, window.innerWidth || 1200],
+          x: ['-100%', '200%'],
         }}
         transition={{
           duration: 8,
@@ -100,7 +114,7 @@ const AnimatedBackground = () => {
       <motion.div
         className="absolute top-0 right-0 w-px h-full bg-gradient-to-b from-transparent via-purple-400 to-transparent opacity-40"
         animate={{
-          x: [0, -(window.innerWidth || 1200)],
+          x: ['100%', '-200%'],
         }}
         transition={{
           duration: 12,
@@ -111,22 +125,22 @@ const AnimatedBackground = () => {
       />
 
       {/* Particules flottantes */}
-      {Array.from({ length: 20 }).map((_, i) => (
+      {particles.map((particle) => (
         <motion.div
-          key={`particle-${i}`}
+          key={`particle-${particle.id}`}
           className="absolute w-1 h-1 bg-blue-300 rounded-full opacity-60"
           style={{
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
+            left: `${particle.x}%`,
+            top: `${particle.y}%`,
           }}
           animate={{
             y: [-20, -100, -20],
             opacity: [0.6, 0.2, 0.6],
           }}
           transition={{
-            duration: 4 + Math.random() * 4,
+            duration: particle.duration,
             repeat: Infinity,
-            delay: Math.random() * 2,
+            delay: particle.delay,
             ease: 'easeInOut',
           }}
         />

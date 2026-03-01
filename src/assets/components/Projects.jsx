@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { motion, useMotionValue } from 'framer-motion';
+import { motion, useMotionValue } from 'motion/react';
 import {
   ExternalLink,
   ChevronLeft,
@@ -10,9 +10,25 @@ import hypersplash from '/medias/Hyper-splash.png';
 import portfolio from '/medias/portfolio.png';
 import pfm from '/medias/PFM.png';
 import comingsoon from '/medias/coming-soon.png';
+import ovbNexus from '/medias/ovb-nexus.png';
 
 const Projects = () => {
   const projects = [
+    {
+      title: 'OVB Nexus',
+      description:
+        'Websites that turn visitors into customers. OVB Nexus is a digital web agency delivering custom design, optimized code, and guaranteed performance. We are dedicated to creating unique digital experiences for web and mobile platforms that drive results and elevate brands.',
+      image: ovbNexus,
+      technologies: [
+        'Next.js',
+        'React',
+        'TypeScript',
+        'Tailwind CSS',
+        'Framer Motion',
+        'Vercel',
+      ],
+      external: 'https://www.ovbnexus.com/',
+    },
     {
       title: 'Nookd',
       description:
@@ -123,7 +139,7 @@ const Projects = () => {
         setItemWidth(350);
       } else {
         setItemsToShow(1);
-        setItemWidth(400);
+        setItemWidth(Math.min(340, width - 40)); // Max 340px or viewport - padding
       }
     };
 
@@ -202,9 +218,16 @@ const Projects = () => {
             </motion.a>
 
             <div className="flex-1 flex flex-col">
-              <h3 className="text-zinc-100 font-semibold text-3xl mb-3 drop-shadow-md text-center tracking-widest border rounded-b-full hover:text-teal-400 hover:shadow-2xl transition-colors duration-200">
-                {project.title}
-              </h3>
+              <a
+                href={project.external}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="z-10"
+              >
+                <h3 className="text-zinc-100 font-semibold text-3xl mb-3 drop-shadow-md text-center tracking-widest border rounded-b-full hover:text-teal-400 hover:shadow-2xl transition-colors duration-200 cursor-pointer">
+                  {project.title}
+                </h3>
+              </a>
 
               <p className="text-gray-200 text-sm md:text-base mb-3 flex-1 leading-relaxed drop-shadow-sm text-center">
                 {project.description}
@@ -295,14 +318,21 @@ const Projects = () => {
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="rounded-t-[130px] w-full h-32 md:h-48 lg:h-44 xl:h-48 mb-3 cursor-pointer object-cover hover:shadow-2xl"
+                  className="rounded-t-2xl w-full h-32 md:h-48 lg:h-44 xl:h-48 mb-3 cursor-pointer object-cover hover:shadow-2xl"
                 />
               </motion.a>
 
               <div className="flex-1 flex flex-col">
-                <h3 className="text-zinc-100 font-semibold text-3xl mb-3 drop-shadow-md text-center tracking-widest border rounded-b-full hover:text-teal-400 hover:shadow-2xl transition-colors duration-200 font-tanker">
-                  {project.title}
-                </h3>
+                <a
+                  href={project.external}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="z-10"
+                >
+                  <h3 className="text-zinc-100 font-semibold text-3xl mb-3 drop-shadow-md text-center tracking-widest border rounded-b-full hover:text-teal-400 hover:shadow-2xl transition-colors duration-200 font-tanker cursor-pointer">
+                    {project.title}
+                  </h3>
+                </a>
 
                 <p className="text-gray-200 text-sm md:text-base mb-3 flex-1 leading-relaxed drop-shadow-sm text-center">
                   {project.description}

@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import Projects from '../components/Projects';
 import { X } from 'lucide-react';
 import NeuralBackground from '../background/NeuralBackground';
@@ -35,7 +35,7 @@ const ProjectsCard = ({ setOpen2 }) => {
           &nbsp;Builds
         </motion.h3>
 
-        <div className="flex-1 flex flex-col justify-between lg:max-xlscale-95">
+        <div className="flex-1 flex flex-col justify-between">
           <Projects />
         </div>
       </div>

@@ -1,6 +1,19 @@
-import { motion } from 'framer-motion';
+import { useMemo } from 'react';
+import { motion } from 'motion/react';
 
 const AnimatedBackground2 = () => {
+  const particles = useMemo(
+    () =>
+      Array.from({ length: 20 }, (_, i) => ({
+        id: i,
+        width: Math.random() * 8 + 3,
+        x: Math.random() * 100,
+        y: Math.random() * 100,
+        duration: Math.random() * 5 + 4,
+      })),
+    []
+  );
+
   return (
     <div className="absolute inset-0 -z-10 overflow-hidden bg-gradient-to-br from-gray-900 via-gray-950 to-black">
       {/* Forme 1 */}
@@ -49,22 +62,22 @@ const AnimatedBackground2 = () => {
       />
 
       {/* Particules */}
-      {[...Array(20)].map((_, i) => (
+      {particles.map((particle) => (
         <motion.div
-          key={i}
+          key={particle.id}
           className="absolute rounded-full bg-white opacity-30 blur-sm"
           style={{
-            width: Math.random() * 8 + 3,
-            height: Math.random() * 8 + 3,
-            top: `${Math.random() * 100}%`,
-            left: `${Math.random() * 100}%`,
+            width: particle.width,
+            height: particle.width,
+            top: `${particle.y}%`,
+            left: `${particle.x}%`,
           }}
           animate={{
             y: [0, -40, 0],
             opacity: [0.3, 0.1, 0.3],
           }}
           transition={{
-            duration: Math.random() * 5 + 4,
+            duration: particle.duration,
             repeat: Infinity,
             ease: 'easeInOut',
           }}

@@ -1,19 +1,23 @@
-import { motion } from 'framer-motion';
+import { useMemo } from 'react';
+import { motion } from 'motion/react';
 
 const GeometricBackground = () => {
-  // Générer des formes géométriques animées
-  const shapes = Array.from({ length: 12 }, (_, i) => ({
-    id: i,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    size: 20 + Math.random() * 60,
-    rotation: Math.random() * 360,
-    delay: Math.random() * 3,
-    duration: 4 + Math.random() * 4,
-    type: ['triangle', 'square', 'circle', 'diamond'][
-      Math.floor(Math.random() * 4)
-    ],
-  }));
+  const shapes = useMemo(
+    () =>
+      Array.from({ length: 12 }, (_, i) => ({
+        id: i,
+        x: Math.random() * 100,
+        y: Math.random() * 100,
+        size: 20 + Math.random() * 60,
+        rotation: Math.random() * 360,
+        delay: Math.random() * 3,
+        duration: 4 + Math.random() * 4,
+        type: ['triangle', 'square', 'circle', 'diamond'][
+          Math.floor(Math.random() * 4)
+        ],
+      })),
+    []
+  );
 
   const renderShape = (shape) => {
     const baseClasses = 'absolute border-2 border-cyan-400/30';

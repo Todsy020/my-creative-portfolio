@@ -1,6 +1,6 @@
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { useRef } from 'react';
-import { useScroll, useTransform, useSpring } from 'framer-motion';
+import { useScroll, useTransform, useSpring } from 'motion/react';
 import GeometricBackground from '../background/GeometricBackground';
 import SpotlightCard from '../components/SpotlightCard';
 import { useIsDesktop } from '../../hooks/useMediaQuery';
@@ -185,7 +185,7 @@ const SecondSection = () => {
               rotateZ: '-15deg',
             },
           }}
-          className="absolute rounded-xl md:w-[25vw] lg:w-[27vw] xl:w-[25vw] 2xl:w-[23vw] max-w-[45vw] -left-[8vw] md:-left-[3vw] lg:-left-[5vw] xl:-left-[7rem] 2xl:-left-[2rem] top-[6vh] md:top-[12vh] lg:top-[2rem] xl:top-[2rem] gpu ios-fix"
+          className="absolute rounded-xl w-[40vw] md:w-[25vw] lg:w-[27vw] xl:w-[25vw] 2xl:w-[23vw] -left-[8vw] md:-left-[3vw] lg:-left-[5vw] xl:-left-[7rem] 2xl:-left-[2rem] top-[6vh] md:top-[12vh] lg:top-[2rem] xl:top-[2rem] gpu ios-fix"
         />
 
         {/* Image right */}
@@ -196,7 +196,7 @@ const SecondSection = () => {
             rotateZ: '15deg',
           }}
           loading="lazy"
-          className="absolute rounded-xl md:w-[30vw] lg:w-[35vw] xl:w-[32vw] 2xl:w-[26vw] max-w-[55vw] -right-[5vw] md:-right-[3vw] lg:-right-[5vw] xl:-right-[5rem] 2xl:right-[0rem] top-[19vh] md:top-[25vh] lg:-top-0 xl:top-15 gpu ios-fix"
+          className="absolute rounded-xl w-[50vw] md:w-[30vw] lg:w-[35vw] xl:w-[32vw] 2xl:w-[26vw] -right-[5vw] md:-right-[3vw] lg:-right-[5vw] xl:-right-[5rem] 2xl:right-[0rem] top-[19vh] md:top-[25vh] lg:-top-0 xl:top-15 gpu ios-fix"
           src={hyperSplash}
           alt="Hyper splash graphic"
         />
@@ -212,7 +212,7 @@ const SecondSection = () => {
               rotateZ: '12deg',
             },
           }}
-          className="absolute rounded-xl md:w-[25vw] lg:w-[19vw] xl:w-[18vw] 2xl:w-[18vw] max-w-[40vw] -left-[9vw] md:-left-[2vw] lg:-left-[0vw] xl:-left-[2rem] 2xl:left-[2rem] bottom-[8vh] md:bottom-[12vh] lg:bottom-[0rem] xl:bottom-[3rem] gpu ios-fix"
+          className="absolute rounded-xl w-[35vw] md:w-[25vw] lg:w-[19vw] xl:w-[18vw] 2xl:w-[18vw] -left-[9vw] md:-left-[2vw] lg:-left-[0vw] xl:-left-[2rem] 2xl:left-[2rem] bottom-[8vh] md:bottom-[12vh] lg:bottom-[0rem] xl:bottom-[3rem] gpu ios-fix"
         />
 
         {/* Video bottom right */}
@@ -226,7 +226,7 @@ const SecondSection = () => {
               rotateZ: '-8deg',
             },
           }}
-          className="absolute rounded-xl md:w-[25vw] lg:w-[20vw] xl:w-[19vw] 2xl:w-[17vw] max-w-[42vw] -right-[5vw] md:-right-[3vw] lg:-right-[2vw] xl:-right-[1rem] 2xl:right-[4rem] bottom-[10vh] md:bottom-[10vh] lg:bottom-[2rem] xl:bottom-[2rem] 2xl:bottom-[5rem] gpu ios-fix"
+          className="absolute rounded-xl w-[38vw] md:w-[25vw] lg:w-[20vw] xl:w-[19vw] 2xl:w-[17vw] -right-[5vw] md:-right-[3vw] lg:-right-[2vw] xl:-right-[1rem] 2xl:right-[4rem] bottom-[10vh] md:bottom-[10vh] lg:bottom-[2rem] xl:bottom-[2rem] 2xl:bottom-[5rem] gpu ios-fix"
         />
       </SpotlightCard>
     </motion.section>

@@ -1,56 +1,72 @@
-import { motion } from 'framer-motion';
+import { useMemo } from 'react';
+import { motion } from 'motion/react';
 
 const NeuralBackground = () => {
-  // Générer des nœuds pour le réseau neural
-  const nodes = Array.from({ length: 20 }, (_, i) => ({
-    id: i,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    size: 4 + Math.random() * 8,
-    connections: Math.floor(Math.random() * 4) + 2,
-    pulseDelay: Math.random() * 3,
-    glowIntensity: 0.3 + Math.random() * 0.7,
-  }));
+  const { nodes, connections, dataParticles, matrixColumns } = useMemo(() => {
+    const _nodes = Array.from({ length: 20 }, (_, i) => ({
+      id: i,
+      x: Math.random() * 100,
+      y: Math.random() * 100,
+      size: 4 + Math.random() * 8,
+      connections: Math.floor(Math.random() * 4) + 2,
+      pulseDelay: Math.random() * 3,
+      glowIntensity: 0.3 + Math.random() * 0.7,
+    }));
 
-  // Générer des connexions entre nœuds
-  const connections = [];
-  nodes.forEach((node, i) => {
-    for (
-      let j = 0;
-      j < node.connections && j < nodes.length - i - 1;
-      j++
-    ) {
-      const targetIndex = i + j + 1;
-      if (targetIndex < nodes.length) {
-        const target = nodes[targetIndex];
-        const distance = Math.sqrt(
-          Math.pow(node.x - target.x, 2) +
-            Math.pow(node.y - target.y, 2)
-        );
-        if (distance < 40) {
-          connections.push({
-            id: `${i}-${targetIndex}`,
-            from: node,
-            to: target,
-            distance,
-            delay: Math.random() * 2,
-          });
+    const _connections = [];
+    _nodes.forEach((node, i) => {
+      for (
+        let j = 0;
+        j < node.connections && j < _nodes.length - i - 1;
+        j++
+      ) {
+        const targetIndex = i + j + 1;
+        if (targetIndex < _nodes.length) {
+          const target = _nodes[targetIndex];
+          const distance = Math.sqrt(
+            Math.pow(node.x - target.x, 2) +
+              Math.pow(node.y - target.y, 2)
+          );
+          if (distance < 40) {
+            _connections.push({
+              id: `${i}-${targetIndex}`,
+              from: node,
+              to: target,
+              distance,
+              delay: Math.random() * 2,
+            });
+          }
         }
       }
-    }
-  });
+    });
 
-  // Particules de données
-  const dataParticles = Array.from({ length: 30 }, (_, i) => ({
-    id: i,
-    startX: Math.random() * 100,
-    startY: Math.random() * 100,
-    endX: Math.random() * 100,
-    endY: Math.random() * 100,
-    size: 1 + Math.random() * 2,
-    delay: Math.random() * 5,
-    duration: 3 + Math.random() * 4,
-  }));
+    const _dataParticles = Array.from({ length: 30 }, (_, i) => ({
+      id: i,
+      startX: Math.random() * 100,
+      startY: Math.random() * 100,
+      endX: Math.random() * 100,
+      endY: Math.random() * 100,
+      size: 1 + Math.random() * 2,
+      delay: Math.random() * 5,
+      duration: 3 + Math.random() * 4,
+    }));
+
+    const _matrixColumns = Array.from({ length: 10 }, (_, i) => ({
+      id: i,
+      duration: 8 + Math.random() * 4,
+      delay: Math.random() * 2,
+      digits: Array.from({ length: 20 }, () =>
+        Math.random() > 0.5 ? '1' : '0'
+      ),
+    }));
+
+    return {
+      nodes: _nodes,
+      connections: _connections,
+      dataParticles: _dataParticles,
+      matrixColumns: _matrixColumns,
+    };
+  }, []);
 
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
@@ -257,7 +273,7 @@ const NeuralBackground = () => {
           className="absolute w-full h-px bg-gradient-to-r from-transparent via-green-400/50 to-transparent"
           style={{ top: `${20 + i * 15}%` }}
           animate={{
-            x: [-200, window.innerWidth + 200],
+            x: ['-100%', '200%'],
             opacity: [0, 1, 0],
           }}
           transition={{
@@ -294,27 +310,27 @@ const NeuralBackground = () => {
       </div>
 
       {/* Effet de matrice de données */}
-      {Array.from({ length: 10 }).map((_, i) => (
+      {matrixColumns.map((col) => (
         <motion.div
-          key={`matrix-${i}`}
+          key={`matrix-${col.id}`}
           className="absolute text-green-400 font-mono text-xs opacity-30"
           style={{
-            left: `${i * 10}%`,
+            left: `${col.id * 10}%`,
             top: '10%',
           }}
           animate={{
-            y: [0, window.innerHeight],
+            y: ['0vh', '100vh'],
             opacity: [0.3, 0.1, 0.3],
           }}
           transition={{
-            duration: 8 + Math.random() * 4,
-            delay: Math.random() * 2,
+            duration: col.duration,
+            delay: col.delay,
             repeat: Infinity,
             ease: 'linear',
           }}
         >
-          {Array.from({ length: 20 }).map((_, j) => (
-            <div key={j}>{Math.random() > 0.5 ? '1' : '0'}</div>
+          {col.digits.map((digit, j) => (
+            <div key={j}>{digit}</div>
           ))}
         </motion.div>
       ))}
