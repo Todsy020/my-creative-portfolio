@@ -28,7 +28,7 @@ const AnimatedBackground = () => {
   }, [isDesktop]);
 
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+    <div className="absolute inset-0 overflow-hidden pointer-events-none" style={{ clipPath: 'inset(0 0 0 0)' }}>
       {/* Pattern de quadrillage en SVG */}
       <div className="absolute inset-0 opacity-30">
         <svg

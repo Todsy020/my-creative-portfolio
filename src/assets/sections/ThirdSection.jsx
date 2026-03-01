@@ -104,7 +104,7 @@ const ThirdSection = () => {
           WebkitBackfaceVisibility: 'hidden',
         }),
       }}
-      className={`w-full h-screen-ios lg:h-110vh-ios flex items-center justify-center bg-slate-900 z-40 sticky top-0 mt-20 md:mt-32 lg:mt-36 ${isDesktop ? 'overflow-hidden will-change-transform perspective-1000' : ''}`}
+      className={`w-full h-screen-ios lg:h-110vh-ios flex items-center justify-center bg-slate-900 z-40 sticky top-0 mt-20 md:mt-32 lg:mt-36 overflow-hidden ${isDesktop ? 'will-change-transform perspective-1000' : ''}`}
       aria-label="About Me and My Work section with interactive cards"
     >
       <AnimatedBackground />
