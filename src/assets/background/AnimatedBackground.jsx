@@ -6,7 +6,9 @@ const AnimatedBackground = () => {
   const isDesktop = useIsDesktop();
 
   const { lightFlashes, particles } = useMemo(() => {
-    const _lightFlashes = Array.from({ length: isDesktop ? 8 : 3 }, (_, i) => ({
+    if (!isDesktop) return { lightFlashes: [], particles: [] };
+
+    const _lightFlashes = Array.from({ length: 8 }, (_, i) => ({
       id: i,
       x: Math.random() * 100,
       y: Math.random() * 100,
@@ -16,7 +18,7 @@ const AnimatedBackground = () => {
       moveY: Math.random() * 100 - 50,
     }));
 
-    const _particles = Array.from({ length: isDesktop ? 20 : 8 }, (_, i) => ({
+    const _particles = Array.from({ length: 20 }, (_, i) => ({
       id: i,
       x: Math.random() * 100,
       y: Math.random() * 100,
@@ -28,7 +30,7 @@ const AnimatedBackground = () => {
   }, [isDesktop]);
 
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none" style={{ clipPath: 'inset(0 0 0 0)' }}>
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
       {/* Pattern de quadrillage en SVG */}
       <div className="absolute inset-0 opacity-30">
         <svg
@@ -74,8 +76,8 @@ const AnimatedBackground = () => {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-700/10 rounded-full blur-3xl" />
       </div>
 
-      {/* Flashs lumineux animés */}
-      {lightFlashes.map((flash) => (
+      {/* Flashs lumineux animés - desktop uniquement */}
+      {isDesktop && lightFlashes.map((flash) => (
         <motion.div
           key={flash.id}
           className="absolute w-2 h-2 bg-blue-400 rounded-full shadow-lg"
@@ -101,34 +103,38 @@ const AnimatedBackground = () => {
         />
       ))}
 
-      {/* Lignes lumineuses traversantes */}
-      <motion.div
-        className="absolute top-0 left-0 w-px h-full bg-gradient-to-b from-transparent via-blue-400 to-transparent opacity-40"
-        animate={{
-          x: ['-100%', '200%'],
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: 'linear',
-        }}
-      />
+      {/* Lignes lumineuses traversantes - desktop uniquement */}
+      {isDesktop && (
+        <>
+          <motion.div
+            className="absolute top-0 left-0 w-px h-full bg-gradient-to-b from-transparent via-blue-400 to-transparent opacity-40"
+            animate={{
+              x: ['-100%', '200%'],
+            }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              ease: 'linear',
+            }}
+          />
 
-      <motion.div
-        className="absolute top-0 right-0 w-px h-full bg-gradient-to-b from-transparent via-purple-400 to-transparent opacity-40"
-        animate={{
-          x: ['100%', '-200%'],
-        }}
-        transition={{
-          duration: 12,
-          repeat: Infinity,
-          ease: 'linear',
-          delay: 2,
-        }}
-      />
+          <motion.div
+            className="absolute top-0 right-0 w-px h-full bg-gradient-to-b from-transparent via-purple-400 to-transparent opacity-40"
+            animate={{
+              x: ['100%', '-200%'],
+            }}
+            transition={{
+              duration: 12,
+              repeat: Infinity,
+              ease: 'linear',
+              delay: 2,
+            }}
+          />
+        </>
+      )}
 
-      {/* Particules flottantes */}
-      {particles.map((particle) => (
+      {/* Particules flottantes - desktop uniquement */}
+      {isDesktop && particles.map((particle) => (
         <motion.div
           key={`particle-${particle.id}`}
           className="absolute w-1 h-1 bg-blue-300 rounded-full opacity-60"

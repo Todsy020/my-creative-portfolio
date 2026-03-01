@@ -7,65 +7,72 @@ const AnimatedBackground2 = () => {
 
   const particles = useMemo(
     () =>
-      Array.from({ length: isDesktop ? 20 : 8 }, (_, i) => ({
-        id: i,
-        width: Math.random() * 8 + 3,
-        x: Math.random() * 100,
-        y: Math.random() * 100,
-        duration: Math.random() * 5 + 4,
-      })),
+      !isDesktop
+        ? []
+        : Array.from({ length: 20 }, (_, i) => ({
+            id: i,
+            width: Math.random() * 8 + 3,
+            x: Math.random() * 100,
+            y: Math.random() * 100,
+            duration: Math.random() * 5 + 4,
+          })),
     [isDesktop]
   );
 
   return (
-    <div className="absolute inset-0 -z-10 overflow-hidden bg-gradient-to-br from-gray-900 via-gray-950 to-black" style={{ clipPath: 'inset(0 0 0 0)' }}>
-      {/* Forme 1 */}
-      <motion.div
-        className="absolute top-10 left-10 w-40 h-40 bg-gradient-to-r from-indigo-700 to-purple-700 rounded-full opacity-50 blur-xl"
-        animate={{
-          x: [0, 120, 0],
-          y: [0, -60, 0],
-          scale: [1, 1.2, 1],
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: 'easeInOut',
-        }}
-      />
+    <div className="absolute inset-0 -z-10 overflow-hidden bg-gradient-to-br from-gray-900 via-gray-950 to-black">
+      {/* Formes animées - desktop uniquement */}
+      {isDesktop && (
+        <>
+          {/* Forme 1 */}
+          <motion.div
+            className="absolute top-10 left-10 w-40 h-40 bg-gradient-to-r from-indigo-700 to-purple-700 rounded-full opacity-50 blur-xl"
+            animate={{
+              x: [0, 120, 0],
+              y: [0, -60, 0],
+              scale: [1, 1.2, 1],
+            }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              ease: 'easeInOut',
+            }}
+          />
 
-      {/* Forme 2 */}
-      <motion.div
-        className="absolute bottom-20 right-20 w-56 h-56 bg-gradient-to-r from-fuchsia-600 to-pink-700 rounded-full opacity-40 blur-2xl"
-        animate={{
-          x: [0, -120, 0],
-          y: [0, 80, 0],
-          scale: [1, 1.3, 1],
-          rotate: [0, 180, 360],
-        }}
-        transition={{
-          duration: 12,
-          repeat: Infinity,
-          ease: 'easeInOut',
-        }}
-      />
+          {/* Forme 2 */}
+          <motion.div
+            className="absolute bottom-20 right-20 w-56 h-56 bg-gradient-to-r from-fuchsia-600 to-pink-700 rounded-full opacity-40 blur-2xl"
+            animate={{
+              x: [0, -120, 0],
+              y: [0, 80, 0],
+              scale: [1, 1.3, 1],
+              rotate: [0, 180, 360],
+            }}
+            transition={{
+              duration: 12,
+              repeat: Infinity,
+              ease: 'easeInOut',
+            }}
+          />
 
-      {/* Forme 3 */}
-      <motion.div
-        className="absolute top-1/2 left-1/3 w-48 h-48 bg-gradient-to-r from-cyan-500 to-blue-700 rounded-full opacity-40 blur-xl"
-        animate={{
-          scale: [1, 1.3, 1],
-          rotate: [0, 360],
-        }}
-        transition={{
-          duration: 10,
-          repeat: Infinity,
-          ease: 'linear',
-        }}
-      />
+          {/* Forme 3 */}
+          <motion.div
+            className="absolute top-1/2 left-1/3 w-48 h-48 bg-gradient-to-r from-cyan-500 to-blue-700 rounded-full opacity-40 blur-xl"
+            animate={{
+              scale: [1, 1.3, 1],
+              rotate: [0, 360],
+            }}
+            transition={{
+              duration: 10,
+              repeat: Infinity,
+              ease: 'linear',
+            }}
+          />
+        </>
+      )}
 
-      {/* Particules */}
-      {particles.map((particle) => (
+      {/* Particules - desktop uniquement */}
+      {isDesktop && particles.map((particle) => (
         <motion.div
           key={particle.id}
           className="absolute rounded-full bg-white opacity-30 blur-sm"
