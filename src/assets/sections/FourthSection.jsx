@@ -58,10 +58,12 @@ const FourthSection = () => {
       style={{
         rotateZ: rotateFourthSection,
         isolation: 'isolate',
-        backfaceVisibility: 'hidden',
-        WebkitBackfaceVisibility: 'hidden',
+        ...(isDesktop && {
+          backfaceVisibility: 'hidden',
+          WebkitBackfaceVisibility: 'hidden',
+        }),
       }}
-      className="w-full min-h-[160vh] md:h-200vh-ios lg:h-105vh-ios xl:h-110vh-ios flex flex-col items-center justify-start md:justify-center z-50 sticky top-0 mt-[9rem] md:mt-[15rem] lg:mt-[2rem] 2xl:mt-[20vh] overflow-hidden px-4 lg:px-8 pb-32 md:pb-0 will-change-transform perspective-1000"
+      className={`w-full min-h-[160vh] md:h-200vh-ios lg:h-105vh-ios xl:h-110vh-ios flex flex-col items-center justify-start md:justify-center z-50 sticky top-0 mt-[9rem] md:mt-[15rem] lg:mt-[2rem] 2xl:mt-[20vh] overflow-hidden px-4 lg:px-8 pb-32 md:pb-0 ${isDesktop ? 'will-change-transform perspective-1000' : ''}`}
     >
       <AnimatedBackground2 />
 
